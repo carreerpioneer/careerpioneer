@@ -85,4 +85,4 @@ def create_status(request):
       return redirect('jobs')
 
   context = {'form': form}
-  return render(request, 'jobs/job_form.html', context)
+  return render(request, 'status/status_form.html', context)
