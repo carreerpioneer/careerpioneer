@@ -11,4 +11,5 @@ urlpatterns = [
   path('delete-job/<str:pk>', views.delete_job, name='delete-job'),
   path('accounts/signup/', views.signup, name='signup'),
   path('create-platform/', views.create_platform, name="create-platform"),
+  path('delete-platform/<str:pk>', views.delete_platform, name='delete-platform'),
 ]

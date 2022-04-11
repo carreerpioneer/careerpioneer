@@ -1,7 +1,7 @@
 from tempfile import tempdir
 from django.shortcuts import render, redirect
 from .forms import JobForm, PlatformForm
-from .models import Job
+from .models import Job, Platform
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -83,5 +83,16 @@ def create_platform(request):
       return redirect('jobs')
   context = {'form': form}
   return render(request, 'jobs/platform_form.html', context)
+
+
+def delete_platform(request, pk):
+  platform = Platform.objects.get(id=pk)
+
+  if request.method == 'POST':
+    platform.delete()
+    return redirect('jobs')
+
+  context = {'object': platform}
+  return render(request, 'jobs/delete_template.html', context)
 
 
