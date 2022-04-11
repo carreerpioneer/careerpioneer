@@ -5,8 +5,8 @@ from .models import Job
 from django.contrib.auth.views import LoginView
 
 
-class LoginView(LoginView):
-  template_name = 'login.html'
+class Home(LoginView):
+  template_name = 'home.html'
 
 def get_jobs(request):
   jobs = Job.objects.all()
