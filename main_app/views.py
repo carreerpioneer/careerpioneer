@@ -25,8 +25,18 @@ def create_job(request):
   context = {'form': form}
   return render(request, 'jobs/create-job.html', context)
 
-def update_job(request):
-  
+def update_job(request, pk):
+  job = Job.objects.get(id=pk)
+  form = JobForm(instance=job)
+
+  if request.method == 'POST':
+    form = JobForm(request.POST, instance=job)
+    if form.is_valid():
+      form.save()
+      return redirect('jobs')
+
+  context = {'form': form}
+  return render(request, 'jobs/create-job.html', context)
 
 
 
