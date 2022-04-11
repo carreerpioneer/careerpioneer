@@ -1,3 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+
 <h1>Jobs Page</h1>
 <a href="/create-job">Add a job</a>
 <table>
@@ -8,11 +17,13 @@
     <th></th>
   </tr>
   {% for job in jobs %}
-    <tr>
-      <td><a href="{% url 'job-details' job.id %}">{{ job.title }}</a></td>
-      <td>{{ job.company }}</td>
-      <td><a href="{% url 'update-job' job.id %}">Edit</a></td>
-      <td><a href="{% url 'delete-job' job.id %}">Delete</a></td>
-    </tr>
+  <tr>
+    <td><a href="{% url 'job-details' job.id %}">{{ job.title }}</a></td>
+    <td>{{ job.company }}</td>
+    <td><a href="{% url 'update-job' job.id %}">Edit</a></td>
+    <td><a href="{% url 'delete-job' job.id %}">Delete</a></td>
+  </tr>
   {% endfor %}
 </table>
+
+{% endblock  %}
