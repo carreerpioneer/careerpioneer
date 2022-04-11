@@ -6,24 +6,36 @@
 {% endblock %}
 
 {% block content %}
-
-<h1>Jobs Page</h1>
-<a href="/create-job">Add a job</a>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Company</th>
-    <th></th>
-    <th></th>
-  </tr>
-  {% for job in jobs %}
-  <tr>
-    <td><a href="{% url 'job-details' job.id %}">{{ job.title }}</a></td>
-    <td>{{ job.company }}</td>
-    <td><a href="{% url 'update-job' job.id %}">Edit</a></td>
-    <td><a href="{% url 'delete-job' job.id %}">Delete</a></td>
-  </tr>
-  {% endfor %}
-</table>
-
+  {% if user.is_authenticated %}
+    <h1>Jobs Page</h1>
+    <a href="/create-job">Add a job</a>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th></th>
+        <th></th>
+      </tr>
+      {% for job in jobs %}
+        <tr>
+          <td><a href="{% url 'job-details' job.id %}">{{ job.title }}</a></td>
+          <td>{{ job.company }}</td>
+          <td><a href="{% url 'update-job' job.id %}">Edit</a></td>
+          <td><a href="{% url 'delete-job' job.id %}">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </table> 
+    <p>{{user}}</p>
+  {% else %}
+    <h1>Career Pioneer</h1>
+    <section>
+      <form action="{% url 'home' %}" method="post" class="login">
+        <h1>Login</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit" class="btn submit">Login</button>
+      </form>
+    </section>
+  {% endif %}
 {% endblock  %}
