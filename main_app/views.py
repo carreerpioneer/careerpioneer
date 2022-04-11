@@ -79,6 +79,10 @@ def create_status(request):
 
   if request.method == 'POST':
     form = StatusForm(request.POST)
+
     if form.is_valid():
       form.save()
       return redirect('jobs')
+
+  context = {'form': form}
+  return render(request, 'jobs/job_form.html', context)
