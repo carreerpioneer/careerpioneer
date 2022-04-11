@@ -1,8 +1,11 @@
+import re
 from django.shortcuts import render, redirect
 from .forms import JobForm
 from .models import Job
 from django.contrib.auth.views import LoginView
 
+def home(request):
+  render(request, 'home.html')
 
 def get_jobs(request):
   jobs = Job.objects.all()
