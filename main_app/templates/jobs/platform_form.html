@@ -1,7 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
 
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
 <h1>Add A Platform</h1>
 <form action="" method="POST">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit">
+  <input type="submit" class="btn btn-success">
 </form>
+{% endblock %}

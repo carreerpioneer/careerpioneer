@@ -5,12 +5,8 @@
 <section>
   <h1>Thanks For Checking Out Career Pioneer!</h1>
   <h3>We're Glad To Have You! Please Sign Up/Login To Continue</h3>
-  <a href="{% url 'login' %}">Login</a>
-  <a href="{% url 'signup' %}">Sign Up</a>
 {% else %}
   <h1>Welcome Back!</h1>
   <h3>Click Here To Continue Your Job Tracking</h3>
-  <a href="{% url 'jobs' %}">My Jobs</a>
-  <a href="{% url 'logout' %}">Log Out</a>
 {% endif %}
 {% endblock %}
