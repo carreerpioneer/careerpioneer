@@ -19,11 +19,10 @@ def create_job(request):
   if request.method == 'POST':
     form = JobForm(request.POST)
     if form.is_valid():
-      print(form)
-      # form.save()
+      form.save()
       return redirect('jobs')
   
   context = {'form': form}
-  return render(request, 'jobs/create-job.html')
+  return render(request, 'jobs/create-job.html', context)
 
 
