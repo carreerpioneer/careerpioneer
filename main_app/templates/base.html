@@ -15,7 +15,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffe580">
       <div class="container-fluid">
-        <a class="navbar-brand mx-4" href="/">Career Pioneer</a>
+        <a class="navbar-brand mx-4 fs-2" href="/">Career Pioneer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,15 +23,21 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             {% if user.is_authenticated  %}
             <li class="nav-item">
-              <a class="btn btn-success mx-2" href="{% url 'create-job' %}">Add a Job</a>
+              <a class="btn btn-success mx-2" href="{% url 'create-job' %}">Add Job</a>
             </li>
-               <li class="nav-item">
-              <a class="btn btn-outline-success mx-2" href="{% url 'logout' %}">Log Out</a>
+            <li class="nav-item">
+              <a class="btn btn-success mx-2" href="/">Add Status</a>
             </li>
-            {% else %}
+            <li class="nav-item">
+              <a class="btn btn-success mx-2" href="/">Add Platform</a>
+            </li>
             <li class="nav-item">
               <a class="btn btn-success mx-2" href="/">About</a>
             </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-success mx-2" href="{% url 'logout' %}">Log Out</a>
+            </li>
+            {% else %}
             <li class="nav-item">
               <a class="btn btn-success mx-2" href="{% url 'login' %}">Log In</a>
             </li>

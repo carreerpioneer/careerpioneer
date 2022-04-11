@@ -15,13 +15,14 @@
       <p class="card-text mb-4">{{job.notes}}</p>
       <p class="card-text mb-4">Status: {{job.status}}</p>
         {% if job.resume_groomed %}
-          <p class="card-text"><span class="">Resume: </span>Ready</p>
+          <p class="card-text mb-4"><span class="">Resume: </span>Ready</p>
         {% else %}
-          <p class="card-text">Resume: Not Ready</p>
+          <p class="card-text mb-4">Resume: Not Ready</p>
         {% endif %}
-      <a href="{% url 'update-job' job.id %}" class="card-link">Edit</a>
-      <a href="{% url 'delete-job' job.id %}" class="card-link">Delete</a>
-     </div>
+        <a href="{% url 'jobs' %}" class="btn btn-success">Go Back</a>
+        <a href="{% url 'update-job' job.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete-job' job.id %}" class="btn btn-outline-danger">Delete</a>
+    </div>
   </div>
 </section>
 {% endblock %}
