@@ -1,6 +1,6 @@
 from tempfile import tempdir
 from django.shortcuts import render, redirect
-from .forms import JobForm
+from .forms import JobForm, StatusForm
 from .models import Job, Status
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
@@ -73,3 +73,12 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
+
+def create_status(request):
+  form = StatusForm()
+
+  if request.method == 'POST':
+    form = StatusForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect('jobs')
