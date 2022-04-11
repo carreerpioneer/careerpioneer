@@ -1,0 +1,10 @@
+{% comment %} {% if object %}
+  <h1>Edit Job</h1>
+{% elif %} {% endcomment %}
+<h1>Add a Job</h1>
+{% comment %} {% endif %} {% endcomment %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit">
+</form>
