@@ -1,5 +1,6 @@
 from django.db import models
 import uuid 
+from django.contrib.auth.models import User
 class Job(models.Model):
   title = models.CharField(max_length=200)
   pay_range = models.CharField(max_length=200, null=True, blank=True)
