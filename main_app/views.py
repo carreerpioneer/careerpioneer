@@ -4,6 +4,8 @@ from .forms import JobForm
 from .models import Job
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
 
 def home(request):
   return render(request, 'home.html')
@@ -13,7 +15,7 @@ class Login(LoginView):
 
 @login_required
 def get_jobs(request):
-  jobs = Job.objects.all()
+  jobs = Job.objects.filter(user=request.user)
   context = {'jobs': jobs}
   return render(request, 'jobs/jobs.html', context)
   
@@ -58,6 +60,19 @@ def delete_job(request, pk):
   return render(request, 'jobs/delete_template.html', context)
 
 
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('home')
+    else:
+      error_message = 'Invalid sign up - try again'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)
 
 
 
