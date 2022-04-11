@@ -15,9 +15,8 @@
       {% for stat in status %}
         <tr>
           <td><a href="">{{ stat.name }}</a></td>
-          <td>{{ job.company }}</td>
-          <td><a href="">Edit</a></td>
-          <td><a href="">Delete</a></td>
+          {% comment %} <td>{{ job.company }}</td> {% endcomment %}
+          <td><a href="{% url 'delete-status' stat.id %}">Delete</a></td>
         </tr>
       {% endfor %}
     </table> 

@@ -92,3 +92,13 @@ def get_status(request):
   status = Status.objects.all()
   context = {'status': status}
   return render(request, 'status/status.html', context)
+
+def delete_status(request, pk):
+  status = Status.objects.get(id=pk)
+
+  if request.method == 'POST':
+    status.delete()
+    return redirect('status')
+
+  context = {'object': status}
+  return render(request, 'status/delete_template.html', context)
