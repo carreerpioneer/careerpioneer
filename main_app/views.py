@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import JobForm
 from .models import Job
 
@@ -13,6 +13,17 @@ def jobDetails(request, pk):
   context = {'job': job_obj}
   return render(request, 'jobs/job-detail.html', context)
 
-def createJob(request):
-  pass
+def create_job(request):
+  form = JobForm()
+
+  if request.method == 'POST':
+    form = JobForm(request.POST)
+    if form.is_valid():
+      print(form)
+      # form.save()
+      return redirect('jobs')
+  
+  context = {'form': form}
+  return render(request, 'jobs/create-job.html')
+
 
