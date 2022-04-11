@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block content %}
-  {% if user.is_authenticated %}
     <h1>Jobs Page</h1>
     <a href="/create-job">Add a job</a>
     <table>
@@ -25,17 +24,4 @@
         </tr>
       {% endfor %}
     </table> 
-    <p>{{user}}</p>
-  {% else %}
-    <h1>Career Pioneer</h1>
-    <section>
-      <form action="{% url 'home' %}" method="post" class="login">
-        <h1>Login</h1>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="hidden" name="next" value="{{ next }}">
-        <button type="submit" class="btn submit">Login</button>
-      </form>
-    </section>
-  {% endif %}
 {% endblock  %}

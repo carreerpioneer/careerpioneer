@@ -1,9 +1,13 @@
 import re
+from tempfile import tempdir
 from django.shortcuts import render, redirect
 from .forms import JobForm
 from .models import Job
 from django.contrib.auth.views import LoginView
 
+
+class LoginView(LoginView):
+  template_name = 'login.html'
 
 def get_jobs(request):
   jobs = Job.objects.all()
