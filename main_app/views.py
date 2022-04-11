@@ -1,7 +1,7 @@
 from tempfile import tempdir
 from django.shortcuts import render, redirect
 from .forms import JobForm
-from .models import Job
+from .models import Job, Status
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -73,7 +73,3 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
-
-
-
-
