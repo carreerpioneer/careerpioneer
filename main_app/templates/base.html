@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffe580">
+    <nav class="navbar navbar-expand-lg navbar-light mb-4 shadow-sm" style="background-color: #ffe580">
       <div class="container-fluid">
         <a class="navbar-brand mx-4 fs-2" href="/">Career Pioneer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,26 +23,26 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             {% if user.is_authenticated  %}
             <li class="nav-item">
-              <a class="btn btn-success mx-2" href="{% url 'create-job' %}">Add Job</a>
+              <a class="btn btn-success mx-2 my-2" href="{% url 'jobs' %}">Jobs</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success mx-2" href="/">Add Status</a>
+              <a class="btn btn-success mx-2 my-2" href="{% url 'status' %}">Status</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success mx-2" href="/">Add Platform</a>
+              <a class="btn btn-success mx-2 my-2" href="/">Platform</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success mx-2" href="/">About</a>
+              <a class="btn btn-success mx-2 my-2" href="/">About</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-outline-success mx-2" href="{% url 'logout' %}">Log Out</a>
+              <a class="btn btn-outline-success mx-2 my-2" href="{% url 'logout' %}">Log Out</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a class="btn btn-success mx-2" href="{% url 'login' %}">Log In</a>
+              <a class="btn btn-success mx-2 my-2" href="{% url 'login' %}">Log In</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success mx-2" href="{% url 'signup' %}">Sign Up</a>
+              <a class="btn btn-success mx-2 my-2" href="{% url 'signup' %}">Sign Up</a>
             </li>
             {% endif %}
           </ul>
