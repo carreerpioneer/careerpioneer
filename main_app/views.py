@@ -1,7 +1,7 @@
 from tempfile import tempdir
 from django.shortcuts import render, redirect
-from .forms import JobForm
-from .models import Job
+from .forms import JobForm, StatusForm
+from .models import Job, Status
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -74,6 +74,31 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
 
+def create_status(request):
+  form = StatusForm()
 
+  if request.method == 'POST':
+    form = StatusForm(request.POST)
 
+    if form.is_valid():
+      form.save()
+      return redirect('jobs')
 
+  context = {'form': form}
+  return render(request, 'status/status_form.html', context)
+
+def get_status(request):
+  print(request)
+  status = Status.objects.all()
+  context = {'status': status}
+  return render(request, 'status/status.html', context)
+
+def delete_status(request, pk):
+  status = Status.objects.get(id=pk)
+
+  if request.method == 'POST':
+    status.delete()
+    return redirect('status')
+
+  context = {'object': status}
+  return render(request, 'status/delete_template.html', context)
