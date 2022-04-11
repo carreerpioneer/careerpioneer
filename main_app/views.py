@@ -1,4 +1,3 @@
-import re
 from tempfile import tempdir
 from django.shortcuts import render, redirect
 from .forms import JobForm
