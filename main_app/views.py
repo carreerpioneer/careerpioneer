@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import JobForm
 from .models import Job
+from django.contrib.auth.views import LoginView
 
 
 def get_jobs(request):
