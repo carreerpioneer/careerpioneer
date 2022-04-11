@@ -3,11 +3,12 @@ from django.shortcuts import render, redirect
 from .forms import JobForm
 from .models import Job
 from django.contrib.auth.views import LoginView
-
+from django.contrib.auth.decorators import login_required
 
 class Home(LoginView):
-  template_name = 'home.html'
+  template_name = 'registration/login.html'
 
+@login_required
 def get_jobs(request):
   jobs = Job.objects.all()
   context = {'jobs': jobs}
