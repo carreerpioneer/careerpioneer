@@ -25,6 +25,9 @@ def create_job(request):
   context = {'form': form}
   return render(request, 'jobs/create-job.html', context)
 
+def update_job(request):
+  
+
 
 
 
