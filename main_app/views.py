@@ -23,7 +23,32 @@ def create_job(request):
       return redirect('jobs')
   
   context = {'form': form}
-  return render(request, 'jobs/create-job.html', context)
+  return render(request, 'jobs/job_form.html', context)
+
+def update_job(request, pk):
+  job = Job.objects.get(id=pk)
+  form = JobForm(instance=job)
+
+  if request.method == 'POST':
+    form = JobForm(request.POST, instance=job)
+    if form.is_valid():
+      form.save()
+      return redirect('jobs')
+
+  context = {'form': form}
+  return render(request, 'jobs/job_form.html', context)
+
+def delete_job(request, pk):
+  job = Job.objects.get(id=pk)
+
+  if request.method == 'POST':
+    job.delete()
+    return redirect('jobs')
+
+  context = {'object': job}
+  return render(request, 'jobs/delete_template.html', context)
+
+
 
 
 
