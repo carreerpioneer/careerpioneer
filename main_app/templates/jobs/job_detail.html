@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<section class='container'>
+<section class='container pt-4'>
   <div class="card shadow">
     <div class="card-body">
       <h5 class="card-title">{{job.title}}</h5>
@@ -18,8 +18,8 @@
         {% else %}
           <p class="card-text">Resume: Not Ready</p>
         {% endif %}
-      <a href="#" class="card-link">Edit</a>
-      <a href="#" class="card-link">Delete</a>
+      <a href="{% url 'update-job' job.id %}" class="card-link">Edit</a>
+      <a href="{% url 'delete-job' job.id %}" class="card-link">Delete</a>
      </div>
   </div>
 </section>
