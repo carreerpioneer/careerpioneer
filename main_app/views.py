@@ -5,7 +5,10 @@ from .models import Job
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 
-class Home(LoginView):
+def home(request):
+  return render(request, 'home.html')
+
+class Login(LoginView):
   template_name = 'registration/login.html'
 
 @login_required
@@ -13,7 +16,7 @@ def get_jobs(request):
   jobs = Job.objects.all()
   context = {'jobs': jobs}
   return render(request, 'jobs/jobs.html', context)
-
+  
 def job_details(request, pk):
   job_obj = Job.objects.get(id=pk)
   context = {'job': job_obj}
