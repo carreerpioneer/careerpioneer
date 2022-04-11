@@ -8,10 +8,10 @@ def get_jobs(request):
   context = {'jobs': jobs}
   return render(request, 'jobs/jobs.html', context)
 
-def jobDetails(request, pk):
+def job_details(request, pk):
   job_obj = Job.objects.get(id=pk)
   context = {'job': job_obj}
-  return render(request, 'jobs/job-detail.html', context)
+  return render(request, 'jobs/job_detail.html', context)
 
 def create_job(request):
   form = JobForm()
