@@ -12,4 +12,10 @@ urlpatterns = [
   path('accounts/signup/', views.signup, name='signup'),
   path('status/', views.create_status, name='status'),
   path('status/<str:pk>/', views.delete_status, name='delete-status'),
+  path('create-platform/', views.platform, name="create-platform"),
+  path('delete-platform/<str:pk>', views.delete_platform, name='delete-platform'),
 ]
+
+
+
+

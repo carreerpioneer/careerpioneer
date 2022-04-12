@@ -1,7 +1,7 @@
 from tempfile import tempdir
 from django.shortcuts import render, redirect
-from .forms import JobForm, StatusForm
-from .models import Job, Status
+from .forms import JobForm, PlatformForm , StatusForm
+from .models import Job, Platform , Status
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -19,11 +19,13 @@ def get_jobs(request):
   context = {'jobs': jobs}
   return render(request, 'jobs/jobs.html', context)
   
+@login_required
 def job_details(request, pk):
   job_obj = Job.objects.get(id=pk)
   context = {'job': job_obj}
   return render(request, 'jobs/job_detail.html', context)
 
+@login_required
 def create_job(request):
   form = JobForm()
 
@@ -37,6 +39,7 @@ def create_job(request):
   context = {'form': form}
   return render(request, 'jobs/job_form.html', context)
 
+@login_required
 def update_job(request, pk):
   job = Job.objects.get(id=pk)
   form = JobForm(instance=job)
@@ -51,6 +54,7 @@ def update_job(request, pk):
   print(context)
   return render(request, 'jobs/job_form.html', context)
 
+@login_required
 def delete_job(request, pk):
   job = Job.objects.get(id=pk)
 
@@ -60,7 +64,6 @@ def delete_job(request, pk):
 
   context = {'object': job}
   return render(request, 'jobs/delete_template.html', context)
-
 
 def signup(request):
   error_message = ''
@@ -74,8 +77,21 @@ def signup(request):
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
-  return render(request, 'signup.html', context)
+  return render(request, 'registration/signup.html', context)
 
+@login_required
+def platform(request):
+  platform = Platform.objects.all()
+  form = PlatformForm()
+  if request.method == 'POST':
+    form = PlatformForm(request.POST) 
+    if form.is_valid():
+      form.save()
+      return redirect('create-platform')
+  context = {'form': form, 'platform': platform}
+  return render(request, 'jobs/platform_form.html', context)
+
+@login_required
 def create_status(request):
   form = StatusForm()
   status = Status.objects.all()
@@ -90,6 +106,8 @@ def create_status(request):
   context = {'form': form, 'status': status}
   return render(request, 'status/status.html', context)
 
+
+@login_required
 def delete_status(request, pk):
   status = Status.objects.get(id=pk)
 
@@ -99,3 +117,12 @@ def delete_status(request, pk):
 
   context = {'object': status}
   return render(request, 'status/delete_template.html', context)
+  
+@login_required
+def delete_platform(request, pk):
+  platform = Platform.objects.get(id=pk)
+  if request.method == 'POST':
+    platform.delete()
+    return redirect('create-platform')
+  context = {'object': platform}
+  return render(request, 'jobs/delete_template.html', context)
