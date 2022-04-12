@@ -79,7 +79,9 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 @login_required
-def create_platform(request):
+def platform(request):
+  platform = Platform.objects.filter(user=request.user)
+  context = {'platform': platform }
   form = PlatformForm()
   if request.method == 'POST':
     form = PlatformForm(request.POST) 
