@@ -46,7 +46,8 @@ def update_job(request, pk):
       form.save()
       return redirect('jobs')
 
-  context = {'form': form}
+  context = {'form': form, 'job': job}
+  print(context)
   return render(request, 'jobs/job_form.html', context)
 
 def delete_job(request, pk):
