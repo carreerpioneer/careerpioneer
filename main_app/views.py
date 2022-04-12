@@ -80,15 +80,14 @@ def signup(request):
 
 @login_required
 def platform(request):
-  platform = Platform.objects.filter(user=request.user)
-  context = {'platform': platform }
+  platform = Platform.objects.all()
   form = PlatformForm()
   if request.method == 'POST':
     form = PlatformForm(request.POST) 
     if form.is_valid():
       form.save()
-      return redirect('jobs')
-  context = {'form': form}
+      return redirect('create-platform')
+  context = {'form': form, 'platform': platform}
   return render(request, 'jobs/platform_form.html', context)
 
 @login_required
