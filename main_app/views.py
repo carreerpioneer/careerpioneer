@@ -77,15 +77,16 @@ def signup(request):
 
 def create_status(request):
   form = StatusForm()
+  status = Status.objects.all()
 
   if request.method == 'POST':
     form = StatusForm(request.POST)
 
     if form.is_valid():
       form.save()
-      return redirect('jobs')
+      return redirect('create-status')
 
-  context = {'form': form}
+  context = {'form': form, 'status': status}
   return render(request, 'status/status_form.html', context)
 
 def get_status(request):
