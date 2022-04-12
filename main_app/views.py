@@ -87,7 +87,7 @@ def create_status(request):
       return redirect('create-status')
 
   context = {'form': form, 'status': status}
-  return render(request, 'status/status_form.html', context)
+  return render(request, 'status/status.html', context)
 
 def delete_status(request, pk):
   status = Status.objects.get(id=pk)
