@@ -6,21 +6,24 @@
 {% endblock %}
 
 {% block content %}
-<section class='container'>
-  <div class="card shadow">
+<section class='container d-flex flex-column align-items-center'>
+  <h2 class="mb-4">{{job.title}} @ {{job.company}}</h2>
+  <div class="card shadow w-75" style="background-color: #ffe580; max-width: 45rem">
     <div class="card-body">
-      <h5 class="card-title">{{job.title}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{job.company}}</h6>
-      <h6 class="card-subtitle mb-2">{{job.pay_range}}</h6>
-      <p class="card-text">{{job.notes}}</p>
+      <h3 class="card-title mb-4">{{job.title}}</h3>
+      <h4 class="card-subtitle mb-4">{{job.company}}</h4>
+      <h6 class="card-subtitle mb-4">{{job.pay_range}}</h6>
+      <p class="card-text mb-4">{{job.notes}}</p>
+      <p class="card-text mb-4">Status: {{job.status}}</p>
         {% if job.resume_groomed %}
-          <p class="card-text"><span class="">Resume: </span>Ready</p>
+          <p class="card-text mb-4"><span class="">Resume: </span>Ready</p>
         {% else %}
-          <p class="card-text">Resume: Not Ready</p>
+          <p class="card-text mb-4">Resume: Not Ready</p>
         {% endif %}
-      <a href="#" class="card-link">Edit</a>
-      <a href="#" class="card-link">Delete</a>
-     </div>
+        <a href="{% url 'jobs' %}" class="btn btn-outline-success">Back to Jobs</a>
+        <a href="{% url 'update-job' job.id %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete-job' job.id %}" class="btn btn-danger">Delete</a>
+    </div>
   </div>
 </section>
 {% endblock %}
