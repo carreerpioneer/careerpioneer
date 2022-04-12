@@ -1,14 +1,15 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
 
 {% endblock %} {% block content %}
 
 {% if not user.is_authenticated %}
 <section>
   <h1>Thanks For Checking Out Career Pioneer!</h1>
-  <h3>We're Glad To Have You! Please Sign Up/Login To Continue</h3>
+  <h3>We're Glad To Have You!</h3>
+  <h3>Please Sign Up or Login To Continue</h3>
   <a href="/accounts/login">Login</a>
   <a href="{% url 'signup' %}">Sign Up</a>
 {% else %}
@@ -16,6 +17,6 @@
   <h3>Click Here To Continue Your Job Tracking</h3>
   <a href="/jobs">My Jobs</a>
   <a href="{% url 'logout' %}">Log Out</a>
+  <p>{{ user }}</p>
 {% endif %}
-<p>{{ user }}</p>
 {% endblock %}
