@@ -77,7 +77,7 @@ def signup(request):
 def create_platform(request):
   form = PlatformForm()
   if request.method == 'POST':
-    form = PlatformForm(request.POST)
+    form = PlatformForm(request.POST) 
     if form.is_valid():
       form.save()
       return redirect('jobs')
@@ -87,11 +87,9 @@ def create_platform(request):
 
 def delete_platform(request, pk):
   platform = Platform.objects.get(id=pk)
-
   if request.method == 'POST':
     platform.delete()
     return redirect('jobs')
-
   context = {'object': platform}
   return render(request, 'jobs/delete_template.html', context)
 
