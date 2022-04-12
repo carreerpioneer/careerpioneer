@@ -30,6 +30,7 @@ def create_job(request):
   if request.method == 'POST':
     form = JobForm(request.POST)
     if form.is_valid():
+      form.instance.user = request.user
       form.save()
       return redirect('jobs')
   
