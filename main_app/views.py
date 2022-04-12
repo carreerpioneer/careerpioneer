@@ -32,6 +32,7 @@ def create_job(request):
   if request.method == 'POST':
     form = JobForm(request.POST)
     if form.is_valid():
+      form.instance.user = request.user
       form.save()
       return redirect('jobs')
   
@@ -100,7 +101,7 @@ def create_status(request):
 
     if form.is_valid():
       form.save()
-      return redirect('create-status')
+      return redirect('status')
 
   context = {'form': form, 'status': status}
   return render(request, 'status/status.html', context)

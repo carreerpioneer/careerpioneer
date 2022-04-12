@@ -10,10 +10,10 @@ urlpatterns = [
   path('update-job/<str:pk>', views.update_job, name='update-job'),
   path('delete-job/<str:pk>', views.delete_job, name='delete-job'),
   path('accounts/signup/', views.signup, name='signup'),
-  path('create-platform/', views.platform, name="create-platform"),
-  path('delete-platform/<str:pk>', views.delete_platform, name='delete-platform'), 
-  path('status/', views.create_status, name='create-status'),
+  path('status/', views.create_status, name='status'),
   path('status/<str:pk>/', views.delete_status, name='delete-status'),
+  path('create-platform/', views.platform, name="create-platform"),
+  path('delete-platform/<str:pk>', views.delete_platform, name='delete-platform'),
 ]
 
 
