@@ -89,11 +89,11 @@ def create_status(request):
   context = {'form': form, 'status': status}
   return render(request, 'status/status_form.html', context)
 
-def get_status(request):
-  print(request)
-  status = Status.objects.all()
-  context = {'status': status}
-  return render(request, 'status/status.html', context)
+# def get_status(request):
+#   print(request)
+#   status = Status.objects.all()
+#   context = {'status': status}
+#   return render(request, 'status/status.html', context)
 
 def delete_status(request, pk):
   status = Status.objects.get(id=pk)
