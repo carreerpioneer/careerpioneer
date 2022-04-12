@@ -5,18 +5,19 @@ Career Pioneer is a job tracking application for anyone wanting assistance with 
 
 ### Getting Started: 
 ---------
-Link to [trello board](https://trello.com/b/ENxDm0m5/job-tracker)
+Link to [Trello Board](https://trello.com/b/ENxDm0m5/job-tracker)
 
-[Start Tracking:]()
+[Career Pioneer]()
 
 ### Screenshots:
 ----------
-
+Add a Job page:
+![Screenshot of schedule page](main_app/static/images/Screen%20Shot%202022-04-12%20at%201.09.05%20PM.png)
 
 ### Technologies Used:
 -----------
 * Python3
-* Django
+* Django (v4.0)
 * Postgres
 * Bootstrap (v5.1)
 
