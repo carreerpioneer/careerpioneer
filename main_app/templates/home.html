@@ -15,8 +15,8 @@
 {% else %}
   <h1>Welcome Back!</h1>
   <h3>Click Here To Continue Your Job Tracking</h3>
-  <a href="/jobs">My Jobs</a>
-  <a href="{% url 'logout' %}">Log Out</a>
+  <button><a href="/jobs" class="jobs">My Jobs</a></button>
+  <button><a href="{% url 'logout' %}" class="logout">Log Out</a></button>
   <p>{{ user }}</p>
 {% endif %}
 {% endblock %}
