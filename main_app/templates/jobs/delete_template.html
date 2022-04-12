@@ -14,7 +14,11 @@
         <div class="card-body">
         <p class="mb-4">Are you sure you want to delete "{{ object }}"</p>
         <div class="d-flex justify-content-around">
-          <a class="btn btn-success" href="{% url 'job-details' object.id %}">Go Back</a>
+          {%  if object.company %}
+            <a class="btn btn-success" href="{% url 'job-details' object.id %}">Go Back</a>
+          {% else %}
+            <a class="btn btn-success" href="{% url 'create-platform'%}">Go Back</a>
+          {% endif %}
           <button class="btn btn-outline-danger" type"submit">Delete</button>
         </div>
       </form>
