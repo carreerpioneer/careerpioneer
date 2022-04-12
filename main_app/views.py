@@ -85,7 +85,7 @@ def create_status(request):
 
     if form.is_valid():
       form.save()
-      return redirect('create-status')
+      return redirect('status')
 
   context = {'form': form, 'status': status}
   return render(request, 'status/status.html', context)
