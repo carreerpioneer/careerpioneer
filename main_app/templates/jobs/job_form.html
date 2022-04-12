@@ -7,15 +7,23 @@
 
 {% block content %}
 
-{% if jobs %}
-  <h1>Edit Job</h1>
-{% else %}
-  <h1>Add a Job</h1>
-{% endif %}
-  <form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit">
-  </form>
+<section class="container d-flex flex-column align-items-center">
+  <div class="mb-4">
+  {% if job %}
+    <h2>Edit {{job}} @ {{job.company}}</h2>
+  {% else %}
+    <h2>Add a Job</h2>
+  {% endif %}
+  </div>
+  <div class="card shadow" style="background-color: #ffe580;">
+    <div class="card-body">
+      <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success">
+      </form>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
