@@ -2,12 +2,11 @@
 {% load static %}
 
 {% block head %}
-
-{% endblock %}
+{% endblock head %}
 
 {% block content %}
-    <h1>Statuses</h1>
-    <a href="/create-status">Add a status</a>
+
+<h1>Statuses</h1>
     <table>
       <tr>
         <th>Status</th>
@@ -15,9 +14,16 @@
       {% for stat in status %}
         <tr>
           <td><a href="">{{ stat.name }}</a></td>
-          {% comment %} <td>{{ job.company }}</td> {% endcomment %}
           <td><a href="{% url 'delete-status' stat.id %}">Delete</a></td>
         </tr>
       {% endfor %}
-    </table> 
-{% endblock  %}
+    </table>
+
+<h1>Add a Status</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit">
+</form>
+
+{% endblock content %}

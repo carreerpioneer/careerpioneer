@@ -93,23 +93,18 @@ def platform(request):
 @login_required
 def create_status(request):
   form = StatusForm()
+  status = Status.objects.all()
 
   if request.method == 'POST':
     form = StatusForm(request.POST)
 
     if form.is_valid():
       form.save()
-      return redirect('jobs')
+      return redirect('create-status')
 
-  context = {'form': form}
-  return render(request, 'status/status_form.html', context)
-
-@login_required
-def get_status(request):
-  print(request)
-  status = Status.objects.all()
-  context = {'status': status}
+  context = {'form': form, 'status': status}
   return render(request, 'status/status.html', context)
+
 
 @login_required
 def delete_status(request, pk):
