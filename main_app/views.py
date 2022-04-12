@@ -124,4 +124,12 @@ def delete_status(request, pk):
     return redirect('status')
 
   context = {'object': status}
-  return render(request, 'status/delete_template.html', context)
+  return render(request, 'jobs/delete_template.html', context)
+
+  # def delete_platform(request, pk):
+  # platform = Platform.objects.get(id=pk)
+  # if request.method == 'POST':
+  #   platform.delete()
+  #   return redirect('create-platform')
+  # context = {'object': platform}
+  # return render(request, 'jobs/delete_template.html', context)
