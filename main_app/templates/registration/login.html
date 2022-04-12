@@ -1,10 +1,9 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
-{% endblock %} {% block content %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/login.css' %}"
-/>
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %} 
+{% block content %}
 
 <section>
   <form action="{% url 'login' %}" method="post" class="login">
