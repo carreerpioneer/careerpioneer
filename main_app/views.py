@@ -127,6 +127,6 @@ def delete_platform(request, pk):
   platform = Platform.objects.get(id=pk)
   if request.method == 'POST':
     platform.delete()
-    return redirect('jobs')
+    return redirect('create-platform')
   context = {'object': platform}
   return render(request, 'jobs/delete_template.html', context)
