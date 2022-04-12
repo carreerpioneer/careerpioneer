@@ -25,6 +25,7 @@ class Status(models.Model):
 
   def __str__(self):
     return self.name
+
 class Job(models.Model):
   title = models.CharField(max_length=200)
   pay_range = models.CharField(max_length=200, null=True, blank=True)

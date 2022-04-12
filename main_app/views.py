@@ -1,7 +1,7 @@
 from tempfile import tempdir
 from django.shortcuts import render, redirect
-from .forms import JobForm, PlatformForm
-from .models import Job, Platform
+from .forms import JobForm, PlatformForm , StatusForm
+from .models import Job, Platform , Status
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -46,7 +46,8 @@ def update_job(request, pk):
       form.save()
       return redirect('jobs')
 
-  context = {'form': form}
+  context = {'form': form, 'job': job}
+  print(context)
   return render(request, 'jobs/job_form.html', context)
 
 def delete_job(request, pk):
@@ -84,13 +85,39 @@ def create_platform(request):
   context = {'form': form}
   return render(request, 'jobs/platform_form.html', context)
 
+def create_status(request):
+  form = StatusForm()
 
-def delete_platform(request, pk):
-  platform = Platform.objects.get(id=pk)
+  if request.method == 'POST':
+    form = StatusForm(request.POST)
+
+    if form.is_valid():
+      form.save()
+      return redirect('jobs')
+
+  context = {'form': form}
+  return render(request, 'status/status_form.html', context)
+
+def get_status(request):
+  print(request)
+  status = Status.objects.all()
+  context = {'status': status}
+  return render(request, 'status/status.html', context)
+
+def delete_status(request, pk):
+  status = Status.objects.get(id=pk)
+
+  if request.method == 'POST':
+    status.delete()
+    return redirect('status')
+
+  context = {'object': status}
+  return render(request, 'status/delete_template.html', context)
+
+  def delete_platform(request, pk):
+    platform = Platform.objects.get(id=pk)
   if request.method == 'POST':
     platform.delete()
     return redirect('jobs')
   context = {'object': platform}
   return render(request, 'jobs/delete_template.html', context)
-
-
