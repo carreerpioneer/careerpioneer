@@ -17,7 +17,7 @@
 <section>
   {% for n in platform %}
     <p>{{n}}</p>
-    <button class="btn btn-danger">Delete</button>
+    <a class="btn btn-danger" href="{% url 'delete-platform' n.id %}">Delete</a>
   {% endfor %}
 </section>
 {% endblock %}
