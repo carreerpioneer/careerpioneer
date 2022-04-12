@@ -16,3 +16,7 @@ urlpatterns = [
   path('status/', views.get_status, name='status'),
   path('status/<str:pk>/', views.delete_status, name='delete-status'),
 ]
+
+
+
+

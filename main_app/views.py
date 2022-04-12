@@ -19,11 +19,13 @@ def get_jobs(request):
   context = {'jobs': jobs}
   return render(request, 'jobs/jobs.html', context)
   
+@login_required
 def job_details(request, pk):
   job_obj = Job.objects.get(id=pk)
   context = {'job': job_obj}
   return render(request, 'jobs/job_detail.html', context)
 
+@login_required
 def create_job(request):
   form = JobForm()
 
@@ -36,6 +38,7 @@ def create_job(request):
   context = {'form': form}
   return render(request, 'jobs/job_form.html', context)
 
+@login_required
 def update_job(request, pk):
   job = Job.objects.get(id=pk)
   form = JobForm(instance=job)
@@ -50,6 +53,7 @@ def update_job(request, pk):
   print(context)
   return render(request, 'jobs/job_form.html', context)
 
+@login_required
 def delete_job(request, pk):
   job = Job.objects.get(id=pk)
 
@@ -59,7 +63,6 @@ def delete_job(request, pk):
 
   context = {'object': job}
   return render(request, 'jobs/delete_template.html', context)
-
 
 def signup(request):
   error_message = ''
@@ -75,6 +78,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+@login_required
 def create_platform(request):
   form = PlatformForm()
   if request.method == 'POST':
@@ -85,6 +89,7 @@ def create_platform(request):
   context = {'form': form}
   return render(request, 'jobs/platform_form.html', context)
 
+@login_required
 def create_status(request):
   form = StatusForm()
 
@@ -98,12 +103,14 @@ def create_status(request):
   context = {'form': form}
   return render(request, 'status/status_form.html', context)
 
+@login_required
 def get_status(request):
   print(request)
   status = Status.objects.all()
   context = {'status': status}
   return render(request, 'status/status.html', context)
 
+@login_required
 def delete_status(request, pk):
   status = Status.objects.get(id=pk)
 
@@ -113,7 +120,8 @@ def delete_status(request, pk):
 
   context = {'object': status}
   return render(request, 'status/delete_template.html', context)
-
+  
+@login_required
 def delete_platform(request, pk):
   platform = Platform.objects.get(id=pk)
   if request.method == 'POST':
