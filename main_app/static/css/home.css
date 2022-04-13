@@ -3,9 +3,10 @@ section {
     text-align: center;
 }
 
-a .jobs {
+button .btn, .jobs {
     text-decoration: none;
     background-color: #FFCB00;
     text-align: center;
 }
+
 
