@@ -4,8 +4,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
 
 {% endblock %} {% block content %}
-<section>
-    <h1>About Career Pionner</h1>
+<section class='container d-flex flex-column align-items-center'>
+    <div class="m-auto">
+    <h1>About Career Pioneer</h1>
     <p>
         Career Pioneer is a job tracking application for anyone wanting assistance with 
         their job search. Users are able to sign up and start creating jobs that 
@@ -15,11 +16,13 @@
         will be applied to each job you track so you never have to question where 
         you are in the job application process.
     </p>
-    <p>About the Team:</p>
-    <ul>
+    <h3>About the Team:</h3>
+    <ul class="list-unstyled">
         <li><a href="https://www.linkedin.com/" target="_blank">Cody Gravley</a></li>
         <li><a href="https://www.linkedin.com/" target="_blank">Teal Ewer</a></li>
         <li><a href="https://www.linkedin.com/" target="_blank">Zena Endrias</a></li>
         <li><a href="https://www.linkedin.com/" target="_blank">Christine Davis</a></li>
     </ul>
+</div>
+</section>
 {% endblock %}
