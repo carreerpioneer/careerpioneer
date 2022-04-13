@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<section>
+<h1>Add A Platform</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-success">
+  </form>
+</section>
+<section>
+  {% for n in platform %}
+    <p>{{n}}</p>
+    <a class="btn btn-danger" href="{% url 'delete-platform' n.id %}">Delete</a>
+  {% endfor %}
+</section>
+{% endblock %}
