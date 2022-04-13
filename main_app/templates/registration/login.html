@@ -5,9 +5,9 @@
 {% endblock %} 
 {% block content %}
 
-<section class="container">
-  <div class="card">
-  <div class="m-auto">
+<br></br>
+<section class="container d-flex justify-content-center">
+    <div>
     <form action="{% url 'login' %}" method="post" class="login">
     <h1>Login</h1>
     {% csrf_token %}
@@ -15,7 +15,6 @@
     <input type="hidden" name="next" value="{{ next }}">
     <button type="submit" class="btn submit">Login</button>
     </form>
-  </div>
 </div>
 </section>
 {% endblock %}
