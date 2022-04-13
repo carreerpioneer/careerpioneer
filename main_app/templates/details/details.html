@@ -7,18 +7,22 @@
 {% block content %}
 
 <h1>Details</h1>
-    <table>
+{% if jobdetail %}
+<table>
+    <tr>
+      <th>Detail</th>
+    </tr>
+    {% for detail in jobdetail %}
       <tr>
-        <th>Detail</th>
+        <td>{{ detail.location }}</td>
+        <td>{{ detail.remote }}</td>
+        {% comment %} <td><a href="{% url 'delete-detail' detail.id %}">Delete</a></td> {% endcomment %}
       </tr>
-      {% for detail in jobdetail %}
-        <tr>
-          <td>{{ detail.location }}</td>
-          <td>{{ detail.remote }}</td>
-          <td><a href="{% url 'delete-detail' detail.id %}">Delete</a></td>
-        </tr>
-      {% endfor %}
-    </table>
+    {% endfor %}
+  </table>
+  {% else %}
+  <h2>No details yet!</h2>
+{% endif %}
 
 <h1>Add a Detail</h1>
 <form action="" method="POST">

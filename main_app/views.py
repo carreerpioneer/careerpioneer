@@ -130,7 +130,7 @@ def delete_status(request, pk):
 
 
 @login_required
-def create_detail(request):
+def details(request):
   form = JobDetailForm()
   jobdetail = JobDetail.objects.all()
 

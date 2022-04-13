@@ -16,9 +16,6 @@ urlpatterns = [
   path('delete-platform/<str:pk>', views.delete_platform, name='delete-platform'),
   path('about/', views.about, name='about'),
   path('details/', views.details, name='details'),
-  path('create-detail/', views.create_detail, name='create-detail'),
+  # path('delete-detail/', views.delete_detail, name='delete-detail'),
 ]
-
-
-
 
