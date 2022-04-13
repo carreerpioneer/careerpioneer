@@ -86,7 +86,7 @@ def platform(request):
   if request.method == 'POST':
     form = PlatformForm(request.POST) 
     if form.is_valid():
-      form.save()
+      form.save() 
       return redirect('create-platform')
   context = {'form': form, 'platform': platform}
   return render(request, 'jobs/platform_form.html', context)

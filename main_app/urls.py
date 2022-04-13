@@ -14,7 +14,7 @@ urlpatterns = [
   path('status/<str:pk>/', views.delete_status, name='delete-status'),
   path('create-platform/', views.platform, name="create-platform"),
   path('delete-platform/<str:pk>', views.delete_platform, name='delete-platform'),
-]
+] 
 
 
 
