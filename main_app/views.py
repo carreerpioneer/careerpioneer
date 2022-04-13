@@ -128,3 +128,20 @@ def delete_status(request, pk):
 
   context = {'object': status}
   return render(request, 'jobs/delete_template.html', context)
+
+
+@login_required
+def create_detail(request):
+  form = StatusForm()
+  status = Status.objects.all()
+
+  if request.method == 'POST':
+    form = StatusForm(request.POST)
+
+    if form.is_valid():
+      form.save()
+      return redirect('status')
+
+  context = {'form': form, 'status': status}
+  return render(request, 'details/details.html', context)
+
