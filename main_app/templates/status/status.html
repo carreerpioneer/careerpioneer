@@ -6,24 +6,22 @@
 
 {% block content %}
 
-<h1>Statuses</h1>
-    <table>
-      <tr>
-        <th>Status</th>
-      </tr>
-      {% for stat in status %}
-        <tr>
-          <td>{{ stat.name }}</td>
-          <td><a href="{% url 'delete-status' stat.id %}">Delete</a></td>
-        </tr>
-      {% endfor %}
-    </table>
-
-<h1>Add a Status</h1>
-<form action="" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit">
-</form>
-
+<div class="container d-flex w-auto" style="min-height: 80vh">
+  <section class="d-flex flex-column w-100 justify-content-center align-items-center text-center">
+    <h1 class="mb-4">Add A Status</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class="btn btn-success">
+    </form> 
+  </section>
+  <section class="d-flex  w-100 justify-content-evenly align-items-center p-20">
+    {% for stat in status %}
+      <span style="text-align: center">
+        <h3>{{stat}}</h3>
+        <a class="btn btn-danger" href="{% url 'delete-status' stat.id %}">Delete</a>
+      </span>
+    {% endfor %}
+    </section>
+</div>
 {% endblock content %}
