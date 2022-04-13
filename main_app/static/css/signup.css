@@ -1,0 +1,8 @@
+section {
+    align-items: center;
+}
+
+button .btn, .submit {
+    background-color: #FFCB00;
+    color: black;
+}
