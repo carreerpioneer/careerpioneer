@@ -139,7 +139,7 @@ def details(request):
 
     if form.is_valid():
       form.save()
-      return redirect('job-detail')
+      return redirect('details')
 
   context = {'form': form, 'jobdetail': jobdetail}
   return render(request, 'details/details.html', context)
