@@ -10,6 +10,9 @@ from django.contrib.auth import login
 def home(request):
   return render(request, 'home.html')
 
+def about(request):
+  return render(request, 'about.html')
+
 class Login(LoginView):
   template_name = 'registration/login.html'
 
