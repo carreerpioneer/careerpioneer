@@ -88,7 +88,7 @@ def platform(request):
   if request.method == 'POST':
     form = PlatformForm(request.POST) 
     if form.is_valid():
-      form.save()
+      form.save() 
       return redirect('create-platform')
   context = {'form': form, 'platform': platform}
   return render(request, 'jobs/platform_form.html', context)
@@ -127,7 +127,6 @@ def delete_status(request, pk):
 
   context = {'object': status}
   return render(request, 'jobs/delete_template.html', context)
-
 
 @login_required
 def details(request):
