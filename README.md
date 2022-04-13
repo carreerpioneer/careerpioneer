@@ -12,15 +12,14 @@ Link to [Trello Board](https://trello.com/b/ENxDm0m5/job-tracker)
 ### Screenshots:
 ----------
 Add a Job page:
-![Screenshot of schedule page](main_app/static/images/Screen%20Shot%202022-04-12%20at%201.09.05%20PM.png)
+![Screenshot of adding a job](main_app/static/images/Screen%20Shot%202022-04-12%20at%201.09.05%20PM.png)
 
 ### Technologies Used:
 -----------
-* Python3
-* Django (v4.0)
-* Postgres
-* Bootstrap (v5.1)
-
+* ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue) (v3.8.9)
+* ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green)(v4.0)
+* ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white) (v14.2)
+* ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) (v5.1)
 
 ### Next Steps:
 -----------
