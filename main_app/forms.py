@@ -1,5 +1,7 @@
 from django.forms import ModelForm
-from .models import Job, Platform, Status
+
+from main_app.views import job_details
+from .models import Job, Platform, Status, JobDetail
 
 class JobForm(ModelForm):
   class Meta:
@@ -10,7 +12,13 @@ class PlatformForm(ModelForm):
   class Meta:
     model = Platform
     fields = '__all__'
+
 class StatusForm(ModelForm):
   class Meta:
     model = Status
+    fields = '__all__'
+
+class JobDetailForm(ModelForm):
+  class Meta:
+    model = JobDetail
     fields = '__all__'
