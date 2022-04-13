@@ -32,10 +32,10 @@
               <a class="btn btn-success mx-2 my-2" href="{% url 'create-platform' %}">Platform</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success mx-2 my-2" href="/">Details</a>
+              <a class="btn btn-success mx-2 my-2" href="/details">Details</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-success mx-2 my-2" href="/">About</a>
+              <a class="btn btn-success mx-2 my-2" href="/about">About</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-outline-success mx-2 my-2" href="{% url 'logout' %}">Log Out</a>
@@ -46,6 +46,9 @@
             </li>
             <li class="nav-item">
               <a class="btn btn-success mx-2 my-2" href="{% url 'signup' %}">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-success mx-2 my-2" href="/about">About</a>
             </li>
             {% endif %}
           </ul>

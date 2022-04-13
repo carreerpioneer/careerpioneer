@@ -1,7 +1,6 @@
-from tempfile import tempdir
 from django.shortcuts import render, redirect
-from .forms import JobForm, PlatformForm , StatusForm
-from .models import Job, Platform , Status
+from .forms import JobForm, PlatformForm , StatusForm, JobDetailForm
+from .models import Job, Platform , Status, JobDetail
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -9,6 +8,9 @@ from django.contrib.auth import login
 
 def home(request):
   return render(request, 'home.html')
+
+def about(request):
+  return render(request, 'about.html')
 
 class Login(LoginView):
   template_name = 'registration/login.html'
@@ -125,3 +127,30 @@ def delete_status(request, pk):
 
   context = {'object': status}
   return render(request, 'jobs/delete_template.html', context)
+
+@login_required
+def details(request):
+  form = JobDetailForm()
+  jobdetail = JobDetail.objects.all()
+
+  if request.method == 'POST':
+    form = JobDetailForm(request.POST)
+
+    if form.is_valid():
+      form.save()
+      return redirect('details')
+
+  context = {'form': form, 'jobdetail': jobdetail}
+  return render(request, 'details/details.html', context)
+
+@login_required
+def delete_detail(request, pk):
+  jobdetails = JobDetail.objects.get(id=pk)
+
+  if request.method == 'POST':
+    jobdetails.delete()
+    return redirect('details')
+
+  context = {'object': jobdetails}
+  return render(request, 'jobs/delete_template.html', context)
+

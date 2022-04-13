@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
 {% endblock %}
 
 {% block content %}
 
+<section class="container d-flex flex-column justify-content-center">
 <div class="page-header">
   <h1>Sign Up</h1>
 </div>
@@ -19,5 +20,6 @@
   </table>
   <button type="submit" class="btn submit">Submit!</button>
 </form>
-<a href="/">home</a>
+<a href="/">Back to Home</a>
+</section>
 {% endblock %}

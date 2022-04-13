@@ -14,8 +14,8 @@ urlpatterns = [
   path('status/<str:pk>/', views.delete_status, name='delete-status'),
   path('create-platform/', views.platform, name="create-platform"),
   path('delete-platform/<str:pk>', views.delete_platform, name='delete-platform'),
-] 
-
-
-
+  path('about/', views.about, name='about'),
+  path('details/', views.details, name='details'),
+  path('delete-detail/<str:pk>', views.delete_detail, name='delete-detail'),
+]
 

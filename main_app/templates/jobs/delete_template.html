@@ -18,6 +18,8 @@
             <a class="btn btn-success" href="{% url 'job-details' object.id %}">Go Back</a>
           {% elif object.website %}
             <a class="btn btn-success" href="{% url 'create-platform'%}">Go Back</a>
+          {% elif object.location %}
+            <a class="btn btn-success" href="{% url 'details'%}">Go Back</a>
           {% else %}
             <a class="btn btn-success" href="{% url 'status'%}">Go Back</a>
           {% endif %}
