@@ -16,8 +16,10 @@
         <div class="d-flex justify-content-around">
           {%  if object.company %}
             <a class="btn btn-success" href="{% url 'job-details' object.id %}">Go Back</a>
-          {% else %}
+          {% elif object.website %}
             <a class="btn btn-success" href="{% url 'create-platform'%}">Go Back</a>
+          {% else %}
+            <a class="btn btn-success" href="{% url 'status'%}">Go Back</a>
           {% endif %}
           <button class="btn btn-outline-danger" type"submit">Delete</button>
         </div>
@@ -27,3 +29,4 @@
 </main>
 
 {% endblock %}
+
