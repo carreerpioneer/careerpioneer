@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+
+<h1>Details</h1>
+    <table>
+      <tr>
+        <th>Detail</th>
+      </tr>
+      {% for detail in jobdetail %}
+        <tr>
+          <td>{{ detail.location }}</td>
+          <td>{{ detail.remote }}</td>
+          <td><a href="{% url 'delete-detail' detail.id %}">Delete</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+
+<h1>Add a Detail</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit">
+</form>
+
+{% endblock content %}
