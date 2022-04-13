@@ -1,7 +1,6 @@
-from tempfile import tempdir
 from django.shortcuts import render, redirect
-from .forms import JobForm, PlatformForm , StatusForm
-from .models import Job, Platform , Status
+from .forms import JobForm, PlatformForm , StatusForm, JobDetailForm
+from .models import Job, Platform , Status, JobDetail
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
@@ -132,16 +131,16 @@ def delete_status(request, pk):
 
 @login_required
 def create_detail(request):
-  form = StatusForm()
-  status = Status.objects.all()
+  form = JobDetailForm()
+  jobdetail = JobDetail.objects.all()
 
   if request.method == 'POST':
-    form = StatusForm(request.POST)
+    form = JobDetailForm(request.POST)
 
     if form.is_valid():
       form.save()
-      return redirect('status')
+      return redirect('job-detail')
 
-  context = {'form': form, 'status': status}
+  context = {'form': form, 'jobdetail': jobdetail}
   return render(request, 'details/details.html', context)
 
