@@ -144,3 +144,14 @@ def details(request):
   context = {'form': form, 'jobdetail': jobdetail}
   return render(request, 'details/details.html', context)
 
+@login_required
+def delete_detail(request, pk):
+  jobdetails = JobDetail.objects.get(id=pk)
+
+  if request.method == 'POST':
+    jobdetails.delete()
+    return redirect('details')
+
+  context = {'object': jobdetails}
+  return render(request, 'jobs/delete_template.html', context)
+
