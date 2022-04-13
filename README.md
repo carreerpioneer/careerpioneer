@@ -11,6 +11,8 @@ Link to [Trello Board](https://trello.com/b/ENxDm0m5/job-tracker)
 
 ### Screenshots:
 ----------
+Home Page:
+![Screenshot of the landing page](main_app/static/images/Screen%20Shot%202022-04-13%20at%209.03.57%20AM.png)
 Add a Job page:
 ![Screenshot of adding a job](main_app/static/images/Screen%20Shot%202022-04-12%20at%201.09.05%20PM.png)
 
