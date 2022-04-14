@@ -4,7 +4,7 @@ from .models import Job, Platform, Status, JobDetail
 class JobForm(ModelForm):
   class Meta:
     model = Job
-    fields = ['title', 'pay_range', 'company', 'notes', 'job_details', 'platform', 'status', 'resume_groomed', 'url']
+    fields = ['title', 'company', 'platform', 'url', 'pay_range', 'job_details', 'status', 'resume_groomed', 'notes']
 
 class PlatformForm(ModelForm):
   class Meta:
