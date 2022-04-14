@@ -44,6 +44,12 @@ h6,
   text-align: center
 }
 
+.form-section input {
+  border-radius: 10px;
+  border: 2px #1e4356 solid;
+  padding: 3px;
+}
+
 
 /*--------------------------------------------------------------
 # Back to top button
