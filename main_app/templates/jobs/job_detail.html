@@ -15,11 +15,17 @@
       <h6 class="card-subtitle mb-4">{{job.pay_range}}</h6>
       <p class="card-text mb-4">{{job.notes}}</p>
       <p class="card-text mb-4">Status: {{job.status}}</p>
-        {% if job.resume_groomed %}
-          <p class="card-text mb-4"><span class="">Resume: </span>Ready</p>
-        {% else %}
-          <p class="card-text mb-4">Resume: Not Ready</p>
-        {% endif %}
+      <p class="card-text mb-4">Platform: {{job.platform}}</p>
+      {% if  job.job_details.remote %}
+      <p class="card-text mb-4">Details: {{job.job_details}} - Remote</p>
+      {% else %}
+      <p class="card-text mb-4">Details: {{job.job_details}} - In Office</p>
+      {% endif %}
+      {% if job.resume_groomed %}
+        <p class="card-text mb-4">Resume: Ready</p>
+      {% else %}
+        <p class="card-text mb-4">Resume: Not Ready</p>
+      {% endif %}
         <a href="{% url 'jobs' %}" class="btn btn-outline-success">Back to Jobs</a>
         <a href="{% url 'update-job' job.id %}" class="btn btn-primary">Edit</a>
         <a href="{% url 'delete-job' job.id %}" class="btn btn-danger">Delete</a>
