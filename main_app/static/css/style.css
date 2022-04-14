@@ -33,6 +33,18 @@ h6,
   font-family: "Roboto", sans-serif;
 }
 
+.flex-container {
+  display: flex;
+  width: 100%;
+}
+
+.form-section,
+.all-section {
+  width: 100%;
+  text-align: center
+}
+
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -644,8 +656,81 @@ section {
 /*--------------------------------------------------------------
 # Our Services
 --------------------------------------------------------------*/
+
+
+a.jobs,
+.all-section>a {
+  background: #1e4356;
+  display: inline-block;
+  padding: 6px 30px;
+  border-radius: 20px;
+  color: #fff;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s;
+}
+
+.job-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-delete>a.job-options {
+  background: #fceef3;
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  color: #ff689b;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s;
+  margin: 10px 7px;
+}
+
+.job-options.details {
+  background: #1e4356;
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 20px;
+  color: #fff;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s;
+  margin-bottom: -8px;
+}
+
+a.job-options:hover {
+  background: #fceef3;
+}
+
+a.jobs:hover,
+.job-options.details:hover,
+.all-section>a:hover {
+  background: #68A4C4;
+}
+
+.add-job {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .services {
   padding-bottom: 20px;
+}
+
+.service-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .services .icon-box {
