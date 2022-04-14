@@ -659,7 +659,8 @@ section {
 
 
 a.jobs,
-.all-section>a {
+.all-section>a,
+.form-section button {
   background: #1e4356;
   display: inline-block;
   padding: 6px 30px;
@@ -712,7 +713,8 @@ a.job-options:hover {
 
 a.jobs:hover,
 .job-options.details:hover,
-.all-section>a:hover {
+.all-section>a:hover,
+.form-section button:hover {
   background: #68A4C4;
 }
 
