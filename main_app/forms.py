@@ -10,14 +10,15 @@ class JobForm(forms.ModelForm):
     widgets = {
       'title': forms.TextInput(attrs={'class': 'form-control'}),
       'company': forms.TextInput(attrs={'class': 'form-control'}),
-      'platform': forms.TextInput(attrs={'class': 'form-control'}),
+      'platform': forms.Select(attrs={'class': 'form-control'}),
       'url': forms.TextInput(attrs={'class': 'form-control'}),
       'pay_range': forms.TextInput(attrs={'class': 'form-control'}),
       'job_details': forms.Select(attrs={'class': 'form-control'}),
       'status': forms.Select(attrs={'class': 'form-control'}),
-      'resume_groomed': forms.RadioSelect(attrs={'class': 'form-control, card-body'}),
+      'resume_groomed': forms.CheckboxInput(),
       'notes': forms.Textarea(attrs={'class': 'form-control'}),
     }
+
 
 class PlatformForm(ModelForm):
   class Meta:
