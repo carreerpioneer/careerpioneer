@@ -6,23 +6,50 @@
 
 {% block content %}
 
-<section class="container card shadow">
-  <div class="card-body d-flex flex-column-reverse flex-md-row row">
-    <img src="{% static 'images/Careerpioneer.png' %}" alt="" class="col col-md-5">
-    <div class="col col-md-7">
-    {% if not user.is_authenticated %}
-      <h1 class="mb-4">Thanks For Checking Out Career Pioneer!</h1>
-      <h3 class="mb-4">We're Glad To Have You! Please Sign Up or Login To Continue</h3>
-      <a class="btn btn-success mx-2 my-2" href="{% url 'login' %}">Log In</a>
-      <a class="btn btn-success mx-2 my-2" href="{% url 'signup' %}">Sign Up</a>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-cntent-center align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Career Pioneer</span></h2>
+          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+          {% if user.is_authenticated %}
+            <a href="{% url 'jobs' %}" class="btn-get-started animate__animated animate__fadeInUp">View Jobs</a>
+          {% else %}
+            <a href="{% url 'signup' %}" class="btn-get-started animate__animated animate__fadeInUp">Sign Up</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
+          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"><</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true">></span>
+      </a>
+
     </div>
-    {% else %}
-      <h1 class="card-title">Welcome Back {{ user }}!</h1>
-      <h3>Click Here To Continue Your Job Tracking</h3>
-      <a href="/jobs">My Jobs</a>
-    </div>
-    {% endif %}
-  </div>
-</section>
+  </section><!-- End Hero -->
 
 {% endblock %}
