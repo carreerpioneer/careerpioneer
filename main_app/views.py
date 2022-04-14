@@ -19,12 +19,14 @@ def signup(request):
   error_message = ''
   if request.method == 'POST':
     form = UserCreationForm(request.POST)
+
     if form.is_valid():
       user = form.save()
       login(request, user)
       return redirect('home')
     else:
       error_message = 'Invalid sign up - try again'
+
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
@@ -47,6 +49,7 @@ def create_job(request):
 
   if request.method == 'POST':
     form = JobForm(request.POST)
+
     if form.is_valid():
       form.instance.user = request.user
       form.save()
@@ -62,6 +65,7 @@ def update_job(request, pk):
 
   if request.method == 'POST':
     form = JobForm(request.POST, instance=job)
+
     if form.is_valid():
       form.save()
       return redirect('jobs')
@@ -84,21 +88,26 @@ def delete_job(request, pk):
 def platform(request):
   platform = Platform.objects.all()
   form = PlatformForm()
+
   if request.method == 'POST':
     form = PlatformForm(request.POST) 
+
     if form.is_valid():
       form.instance.user = request.user
       form.save() 
       return redirect('create-platform')
+
   context = {'form': form, 'platform': platform}
   return render(request, 'jobs/platform_form.html', context)
 
 @login_required
 def delete_platform(request, pk):
   platform = Platform.objects.get(id=pk)
+
   if request.method == 'POST':
     platform.delete()
     return redirect('create-platform')
+    
   context = {'object': platform}
   return render(request, 'jobs/delete_template.html', context)
 
