@@ -2,33 +2,74 @@
 {% load static %}
 
 {% block head %}
+<!--Start Header-->
+<header id="header" class="d-flex align-items-center">
+  <div
+   class="container d-flex
+    justify-content-between align-items-center">
+
+    <div class="logo">
+      <a href="/">
+        <img
+         src="{% static "images/Careerpioneername.png" %}" alt="Logo"
+         class="img-fluid">
+      </a>
+    </div>
+    <!-- Start NavBar -->
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a  href="/">Home</a></li>
+        <li><a href="{% url 'jobs' %}">Jobs</a></li>
+        <li><a href="{% url 'status' %}">Status</a></li>
+        <li><a href="{% url 'create-platform' %}">Platform</a></li>
+        <li><a class="active" href="/details">Details</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="/about">About</a></li>
+      </ul> 
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <!-- .navbar -->
+
+  </div>
+</header>
+<!-- End Header -->
+
+<!--Main Stylesheet-->
+<link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet">
 {% endblock head %}
 
 {% block content %}
-
-<h1>Details</h1>
-{% if jobdetail %}
-<table>
-    <tr>
-      <th>Detail</th>
-    </tr>
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>All Details</h2>
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li>Details</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<div class="flex-container">
+  <section class="all-section">
+    <h2>Avaliable Details</h2>
+    {% if jobdetail %}
     {% for detail in jobdetail %}
-      <tr>
-        <td>{{ detail.location }}</td>
-        <td>{{ detail.remote }}</td>
-        <td><a href="{% url 'delete-detail' detail.id %}">Delete</a></td>
-      </tr>
+        <h5>{{ detail.location }} - {% if detail.remote == True %}Remote {% else %}On Site{% endif %}</h5>
+      <a href="{% url 'delete-detail' detail.id %}">Delete</a>
     {% endfor %}
-  </table>
-  {% else %}
-  <h2>No details yet!</h2>
-{% endif %}
-
-<h1>Add a Detail</h1>
-<form action="" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit">
-</form>
+    {% else %}
+    <h5 class="text-muted">Add A Detail To Get Started</h5>
+    {% endif %}
+    </section>
+  <section class="form-section">
+    <h2>Add Details</h2>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</div>
 
 {% endblock content %}
