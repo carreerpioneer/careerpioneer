@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-
+<link rel="stylesheet" href="{% static 'css/job_form.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -16,13 +16,15 @@
   {% endif %}
   </div>
   <div class="card shadow" style="background-color: #ffe580;">
-    <div class="card-body">
-      <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" class="btn btn-success">
-      </form>
+    {% comment %} <div class="card-body"> {% endcomment %}
+      <div class="form-control">
+        <form action="" method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" class="btn btn-success">
+        </form>
     </div>
+    {% comment %} </div> {% endcomment %}
   </div>
 </section>
 
