@@ -86,7 +86,7 @@ def delete_job(request, pk):
 
 @login_required
 def platform(request):
-  platform = Platform.objects.all()
+  platform = Platform.objects.filter(user=request.user)
   form = PlatformForm()
 
   if request.method == 'POST':
@@ -114,7 +114,7 @@ def delete_platform(request, pk):
 @login_required
 def create_status(request):
   form = StatusForm()
-  status = Status.objects.all()
+  status = Status.objects.filter(user=request.user)
 
   if request.method == 'POST':
     form = StatusForm(request.POST)
@@ -141,7 +141,7 @@ def delete_status(request, pk):
 @login_required
 def details(request):
   form = JobDetailForm()
-  jobdetail = JobDetail.objects.all()
+  jobdetail = JobDetail.filter(user=request.user)
 
   if request.method == 'POST':
     form = JobDetailForm(request.POST)
