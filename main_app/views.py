@@ -141,7 +141,7 @@ def delete_status(request, pk):
 @login_required
 def details(request):
   form = JobDetailForm()
-  jobdetail = JobDetail.filter(user=request.user)
+  jobdetail = JobDetail.objects.filter(user=request.user)
 
   if request.method == 'POST':
     form = JobDetailForm(request.POST)
