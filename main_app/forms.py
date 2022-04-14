@@ -1,4 +1,5 @@
-from django.forms import ModelForm
+from django import forms
+from django.forms import ModelForm, Form
 from .models import Job, Platform, Status, JobDetail
 
 class JobForm(ModelForm):

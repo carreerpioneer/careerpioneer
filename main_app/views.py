@@ -46,9 +46,13 @@ def job_details(request, pk):
 @login_required
 def create_job(request):
   form = JobForm()
+  form.fields['platform'].queryset=Platform.objects.filter(user=request.user)
+  form.fields['job_details'].queryset=JobDetail.objects.filter(user=request.user)
+  form.fields['status'].queryset=Status.objects.filter(user=request.user)
 
   if request.method == 'POST':
     form = JobForm(request.POST)
+    print(form)
 
     if form.is_valid():
       form.instance.user = request.user
@@ -62,6 +66,9 @@ def create_job(request):
 def update_job(request, pk):
   job = Job.objects.get(id=pk)
   form = JobForm(instance=job)
+  form.fields['platform'].queryset=Platform.objects.filter(user=request.user)
+  form.fields['job_details'].queryset=JobDetail.objects.filter(user=request.user)
+  form.fields['status'].queryset=Status.objects.filter(user=request.user)
 
   if request.method == 'POST':
     form = JobForm(request.POST, instance=job)
