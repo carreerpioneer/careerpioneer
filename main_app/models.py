@@ -10,7 +10,7 @@ class JobDetail(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
-    return self.location
+    return f"{self.location} - {'Remote' if self.remote else 'In Office'}"
 
 class Platform(models.Model):
   name = models.CharField(max_length=100)
