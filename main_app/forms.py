@@ -19,6 +19,7 @@ class JobForm(forms.ModelForm):
       'notes': forms.Textarea(attrs={'class': 'form-control'}),
     }
 
+
 class PlatformForm(ModelForm):
   class Meta:
     model = Platform
