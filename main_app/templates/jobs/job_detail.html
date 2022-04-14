@@ -40,27 +40,30 @@
 
 {% block content %}
 
-<section class='container d-flex flex-column align-items-center' style="background-color: #1d4356;">
-  <h2 class="mb-4 text-white">{{job.title}} @ {{job.company}}</h2>
-  <div class="card shadow w-75" style="background-color: #ffe580; max-width: 45rem">
-    <div class="card-body">
-      <h3 class="card-title mb-4">{{job.title}}</h3>
-      <h4 class="card-subtitle mb-4">{{job.company}}</h4>
-      <h4 class="card-text mb-4"><a target="_blank">{{job.url}}</a></h4>
-      <h6 class="card-subtitle mb-4">{{job.pay_range}}</h6>
-      <p class="card-text mb-4">{{job.notes}}</p>
-      <p class="card-text mb-4">Status: {{job.status}}</p>
-      <p class="card-text mb-4">Platform: {{job.platform}}</p>
-      <p class="card-text mb-4">Details: {{job.job_details}}</p>
-      {% if job.resume_groomed %}
+<section class="w-100 h-100"style="background-color: #1d4356;">
+  <div class="container d-flex flex-column align-items-center">
+
+    <h2 class="mb-4 text-white">{{job.title}} @ {{job.company}}</h2>
+    <div class="card shadow w-75" style="background-color: #f3f8fa; max-width: 45rem">
+      <div class="card-body">
+        <h3 class="card-title mb-4">{{job.title}}</h3>
+        <h4 class="card-subtitle mb-4">{{job.company}}</h4>
+        <h4 class="card-text mb-4"><a target="_blank">{{job.url}}</a></h4>
+        <h6 class="card-subtitle mb-4">{{job.pay_range}}</h6>
+        <p class="card-text mb-4">{{job.notes}}</p>
+        <p class="card-text mb-4">Status: {{job.status}}</p>
+        <p class="card-text mb-4">Platform: {{job.platform}}</p>
+        <p class="card-text mb-4">Details: {{job.job_details}}</p>
+        {% if job.resume_groomed %}
         <p class="card-text mb-4">Resume: Ready</p>
-      {% else %}
+        {% else %}
         <p class="card-text mb-4">Resume: Not Ready</p>
-      {% endif %}
+        {% endif %}
         <a href="{% url 'jobs' %}" class="btn btn-outline-success">Back to Jobs</a>
         <a href="{% url 'update-job' job.id %}" class="btn btn-primary">Edit</a>
         <a href="{% url 'delete-job' job.id %}" class="btn btn-danger">Delete</a>
+      </div>
     </div>
   </div>
-</section>
+  </section>
 {% endblock %}
