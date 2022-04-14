@@ -67,7 +67,6 @@ def update_job(request, pk):
       return redirect('jobs')
 
   context = {'form': form, 'job': job}
-  print(context)
   return render(request, 'jobs/job_form.html', context)
 
 @login_required
@@ -88,6 +87,7 @@ def platform(request):
   if request.method == 'POST':
     form = PlatformForm(request.POST) 
     if form.is_valid():
+      form.instance.user = request.user
       form.save() 
       return redirect('create-platform')
   context = {'form': form, 'platform': platform}
@@ -111,6 +111,7 @@ def create_status(request):
     form = StatusForm(request.POST)
 
     if form.is_valid():
+      form.instance.user = request.user
       form.save()
       return redirect('status')
 
@@ -137,6 +138,7 @@ def details(request):
     form = JobDetailForm(request.POST)
 
     if form.is_valid():
+      form.instance.user = request.user
       form.save()
       return redirect('details')
 
