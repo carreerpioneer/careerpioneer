@@ -8,7 +8,7 @@
 <br></br>
 <section class="container d-flex justify-content-center">
     <div>
-    <form action="{% url 'login' %}" method="post" class="login">
+    <form action="{% url 'login' %}" method="post" class="login card">
     <h1>Login</h1>
     {% csrf_token %}
     {{ form.as_p }}
