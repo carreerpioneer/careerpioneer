@@ -1,7 +1,8 @@
-from django.forms import ModelForm
+from django import forms
+from django.forms import ModelForm, Form
 from .models import Job, Platform, Status, JobDetail
 
-class JobForm(ModelForm):
+class JobForm(Form):
   class Meta:
     model = Job
     fields = ['title', 'company', 'platform', 'url', 'pay_range', 'job_details', 'status', 'resume_groomed', 'notes']
