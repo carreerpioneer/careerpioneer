@@ -42,12 +42,15 @@
       <div class="carousel-item active">
         <div class="carousel-container">
           <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Career Pioneer</span></h2>
-          <p class="animate__animated animate__fadeInUp">The best place to keep track of all your jobs!</p>
-          <p>Sign up or login to continue!</p>
+          <p class="animate__animated animate__fadeInUp">Your free and open source job application manager</p>
           {% if user.is_authenticated %}
-            <a href="{% url 'jobs' %}" class="btn-get-started animate__animated animate__fadeInUp">View Jobs</a>
+          <a href="{% url 'jobs' %}" class="btn-get-started animate__animated animate__fadeInUp">View Jobs</a>
           {% else %}
+          <p>Login or Sign Up to continue!</p>
+          <div>
+            <a href="{% url 'login' %}" class="btn-get-started animate__animated animate__fadeInUp">Login</a>
             <a href="{% url 'signup' %}" class="btn-get-started animate__animated animate__fadeInUp">Sign Up</a>
+          </div>
           {% endif %}
         </div>
       </div>
