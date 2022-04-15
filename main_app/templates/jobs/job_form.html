@@ -2,30 +2,73 @@
 {% load static %}
 
 {% block head %}
+<!--Start Header-->
+<header id="header" class="d-flex align-items-center">
+  <div
+   class="container d-flex
+    justify-content-between align-items-center">
 
+    <div class="logo">
+      <a href="/">
+        <img
+         src="{% static "images/Careerpioneername.png" %}" alt="Logo"
+         class="img-fluid">
+      </a>
+    </div>
+    <!-- Start NavBar -->
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a  href="/">Home</a></li>
+        <li><a class="active" href="{% url 'jobs' %}">Jobs</a></li>
+        <li><a href="{% url 'status' %}">Status</a></li>
+        <li><a href="{% url 'create-platform' %}">Platform</a></li>
+        <li><a href="/details">Details</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="/about">About</a></li>
+      </ul> 
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <!-- .navbar -->
+
+  </div>
+</header>
 <link rel="stylesheet" href="{% static 'css/job_form.css' %}">
+<link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
 
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      {% if job %}
+    <h2>Edit {{job}} @ {{job.company}}</h2>
+    {% else %}
+      <h2>Add a Job</h2>
+    {% endif %}
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="{% url 'jobs' %}">Jobs</a></li>
+        {% if job %}
+          <li>Edit Job</li>
+        {% else %}
+          <li>Add a Job</li>
+        {% endif %}
+    </div>
+  </div>
+</section>
+
 <section class="container d-flex flex-column align-items-center">
   <div class="mb-4">
-  {% if job %}
-    <h2>Edit {{job}} @ {{job.company}}</h2>
-  {% else %}
-    <h2>Add a Job</h2>
-  {% endif %}
   </div>
-  <div class="card shadow" style="background-color: #ffe580;">
-    {% comment %} <div class="card-body"> {% endcomment %}
-      <div class="form-control">
+  <div class="card shadow">
+      <div class="form-control detail-card">
         <form action="" method="POST">
           {% csrf_token %}
           {{ form.as_p }}
-          <input type="submit" class="btn btn-success">
+          <input type="submit" class="jobs">
         </form>
     </div>
-    {% comment %} </div> {% endcomment %}
   </div>
 </section>
 
