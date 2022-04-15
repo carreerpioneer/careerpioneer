@@ -668,7 +668,8 @@ section {
 
 a.jobs,
 .all-section>a,
-.form-section button {
+.form-section button,
+input.jobs {
   background: #1e4356;
   display: inline-block;
   padding: 6px 30px;
@@ -678,6 +679,13 @@ a.jobs,
   font-weight: 400;
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
+  border: none;
+}
+
+.center-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .job-buttons {
