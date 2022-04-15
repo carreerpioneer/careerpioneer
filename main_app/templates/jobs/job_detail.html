@@ -40,28 +40,33 @@
 
 {% block content %}
 
-<section class="w-100 h-100"style="background-color: #1d4356;">
+<section class="w-100 h-100">
   <div class="container d-flex flex-column align-items-center">
 
-    <h2 class="mb-4 text-white">{{job.title}} @ {{job.company}}</h2>
-    <div class="card shadow w-75" style="background-color: #f3f8fa; max-width: 45rem">
+    <h2 class="mb-4">{{job.title}} @ {{job.company}}</h2>
+    <div class="card shadow w-75 detail-card" style="max-width: 45rem">
       <div class="card-body">
-        <h3 class="card-title mb-4">{{job.title}}</h3>
-        <h4 class="card-subtitle mb-4">{{job.company}}</h4>
-        <h4 class="card-text mb-4"><a target="_blank">{{job.url}}</a></h4>
-        <h6 class="card-subtitle mb-4">{{job.pay_range}}</h6>
-        <p class="card-text mb-4">{{job.notes}}</p>
-        <p class="card-text mb-4">Status: {{job.status}}</p>
-        <p class="card-text mb-4">Platform: {{job.platform}}</p>
-        <p class="card-text mb-4">Details: {{job.job_details}}</p>
-        {% if job.resume_groomed %}
-        <p class="card-text mb-4">Resume: Ready</p>
-        {% else %}
-        <p class="card-text mb-4">Resume: Not Ready</p>
-        {% endif %}
-        <a href="{% url 'jobs' %}" class="btn btn-outline-success">Back to Jobs</a>
-        <a href="{% url 'update-job' job.id %}" class="btn btn-primary">Edit</a>
-        <a href="{% url 'delete-job' job.id %}" class="btn btn-danger">Delete</a>
+        <ul class="list-group">
+          <li class="card-title list-group-item"><span class="font-weight-bold">Title:</span> {{job.title}}</li>
+          <li class="card-title list-group-item">Company: {{job.company}}</li>
+          <li class="card-title list-group-item"><a target="_blank" href="{{job.url}}">{{job.platform}}</a></li>
+          <li class="card-title list-group-item">Pay Range: {{job.pay_range}}</li>
+          <li class="card-title list-group-item">Status: {{job.status}}</li>
+          <li class="card-title list-group-item">Location: {{job.job_details}}</li>
+            {% if job.resume_groomed %}
+          <li class="card-title list-group-item">Resume Ready</li>
+            {% else %}
+          <li class="card-title list-group-item">Resume Not Ready</li>
+            {% endif %}
+          <li class="card-title list-group-item">Details: <br>{{job.notes}}</li>
+        </ul>
+        <div class="job-buttons">
+          <div class="edit-delete">
+            <a class="job-options"href="{% url 'update-job' job.id %}">Edit</a>
+            <a class="job-options"href="{% url 'delete-job' job.id %}">Delete</a>
+          </div>
+          <a class="job-options details"href="{% url 'jobs' %}">Back to Jobs</a>
+        </div>
       </div>
     </div>
   </div>
