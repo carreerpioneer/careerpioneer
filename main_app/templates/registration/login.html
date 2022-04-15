@@ -30,8 +30,6 @@
     </div>
   </header>
   <!-- End Header -->
-
-  <!-- Login Page Stylesheet-->
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
   
   <!--Main Stylesheet-->
@@ -42,15 +40,19 @@
 {% block content %}
 <br></br>
 <section class="container d-flex justify-content-center">
-    <div>
-    <form action="{% url 'login' %}" method="post" class="login card">
-    <h1>Login</h1>
+  <div class="card detail-card text-center py-4 px-5 shadow">
+    <div class="card-body">
+      <h1 class="mb-4">Login</h1>
+    <form action="{% url 'login' %}" method="post" class="login">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="btn submit">Login</button>
+    <div class="mt-4">
+      <input value="Login" type="submit" class="jobs"/>
+      <a href="/accounts/signup" class="jobs">Sign Up</a>
+    </div>
     </form>
-    <a href="/accounts/signup">SignUp</a>
+  </div>
 </div>
 </section>
 {% endblock %}
