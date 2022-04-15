@@ -15,7 +15,7 @@ class JobForm(forms.ModelForm):
       'pay_range': forms.TextInput(attrs={'class': 'form-control'}),
       'job_details': forms.Select(attrs={'class': 'form-control'}),
       'status': forms.Select(attrs={'class': 'form-control'}),
-      'resume_groomed': forms.CheckboxInput(),
+      'resume_groomed': forms.CheckboxInput(attrs={'class': 'form-control, card-body'}),
       'notes': forms.Textarea(attrs={'class': 'form-control'}),
     }
 
