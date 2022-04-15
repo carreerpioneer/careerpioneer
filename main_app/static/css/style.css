@@ -665,6 +665,7 @@ section {
 
 a.jobs,
 .all-section>a,
+input.jobs,
 .form-section button {
   background: #1e4356;
   display: inline-block;
@@ -717,6 +718,7 @@ a.job-options:hover {
 }
 
 a.jobs:hover,
+input.jobs:hover,
 .job-options.details:hover,
 .all-section>a:hover,
 .form-section button:hover {

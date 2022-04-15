@@ -33,6 +33,7 @@
   </div>
 </header>
 <link rel="stylesheet" href="{% static 'css/job_form.css' %}">
+<link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -40,30 +41,32 @@
 <section class="breadcrumbs">
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
-      <h2>{{job.title}} @ {{job.company}}</h2>
+      {% if job %}
+    <h2>Edit {{job}} @ {{job.company}}</h2>
+    {% else %}
+      <h2>Add a Job</h2>
+    {% endif %}
       <ol>
         <li><a href="/">Home</a></li>
         <li><a href="{% url 'jobs' %}">Jobs</a></li>
-        <li>Job Details</li>
-      </ol>
+        {% if job %}
+          <li>Edit Job</li>
+        {% else %}
+          <li>Add a Job</li>
+        {% endif %}
     </div>
   </div>
 </section>
 
 <section class="container d-flex flex-column align-items-center">
   <div class="mb-4">
-  {% if job %}
-    <h2>Edit {{job}} @ {{job.company}}</h2>
-  {% else %}
-    <h2>Add a Job</h2>
-  {% endif %}
   </div>
-  <div class="card shadow" style="background-color: #ffe580;">
-      <div class="form-control">
+  <div class="card shadow">
+      <div class="form-control detail-card">
         <form action="" method="POST">
           {% csrf_token %}
           {{ form.as_p }}
-          <input type="submit" class="btn btn-success">
+          <input type="submit" class="jobs">
         </form>
     </div>
   </div>
