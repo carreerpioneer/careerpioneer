@@ -1,6 +1,8 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
+<link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet">
+
 <!--Start Header-->
 <header id="header" class="d-flex align-items-center">
     <div
@@ -21,16 +23,23 @@
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="/about">About</a></li>
         </ul> 
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <i class="bi bi-list mobile-nav-toggle fa-solid fa-bars"></i>
       </nav>
       <!-- .navbar -->
   
     </div>
   </header>
   <!-- End Header -->
+<<<<<<< HEAD
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+=======
   
   <!--Main Stylesheet-->
+<<<<<<< HEAD
   <link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet">
+>>>>>>> develop
+=======
+>>>>>>> develop
 {% endblock %} 
 
 

@@ -26,7 +26,7 @@
         <li><a href="{% url 'logout' %}">Logout</a></li>
         <li><a href="/about">About</a></li>
       </ul> 
-      <i class="bi bi-list mobile-nav-toggle"></i>
+      <i class="bi bi-list mobile-nav-toggle fa-solid fa-bars"></i>
     </nav>
     <!-- .navbar -->
 
@@ -66,7 +66,7 @@
   <section class="services">
     <div class="container service-container">
         {% for job in jobs %}
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="col-md-6 col-lg-3 align-items-stretch" data-aos="fade-up">
               <div class="icon-box icon-box-pink">
                 <div class="icon"><i class="fa-solid fa-code"></i></i></div>
                 <h4 class="title">{{ job.title }}</h4>
