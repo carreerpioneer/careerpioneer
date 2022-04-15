@@ -17,11 +17,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a  href="/">Home</a></li>
-          <li><a href="{% url 'jobs' %}">Jobs</a></li>
-          <li><a href="{% url 'status' %}">Status</a></li>
-          <li><a href="{% url 'create-platform' %}">Platform</a></li>
-          <li><a class="active" href="/details">Details</a></li>
-          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
           <li><a href="/about">About</a></li>
         </ul> 
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -53,5 +50,6 @@
   <button type="submit" class="btn submit mx-4">Submit!</button>
 </form>
 <a href="/">Back to Home</a>
+<a href="/accounts/login">Login</a>
 </section>
 {% endblock %}
