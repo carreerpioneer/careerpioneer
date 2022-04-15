@@ -39,11 +39,21 @@
 {% endblock %}
 
 {% block content %}
+<section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>{{job.title}} @ {{job.company}}</h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'jobs' %}">Jobs</a></li>
+          <li>Job Details</li>
+        </ol>
+      </div>
+    </div>
+  </section>
 
 <section class="w-100 h-100">
   <div class="container d-flex flex-column align-items-center">
-
-    <h2 class="mb-4">{{job.title}} @ {{job.company}}</h2>
     <div class="card shadow w-75 detail-card" style="max-width: 45rem">
       <div class="card-body">
         <ul class="list-group">
@@ -62,10 +72,10 @@
         </ul>
         <div class="job-buttons">
           <div class="edit-delete">
+            <a class="jobs"href="{% url 'jobs' %}">Back to Jobs</a>
             <a class="job-options"href="{% url 'update-job' job.id %}">Edit</a>
             <a class="job-options"href="{% url 'delete-job' job.id %}">Delete</a>
           </div>
-          <a class="job-options details"href="{% url 'jobs' %}">Back to Jobs</a>
         </div>
       </div>
     </div>
