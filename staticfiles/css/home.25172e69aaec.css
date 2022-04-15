@@ -1,0 +1,12 @@
+section {
+    display: inline;    
+    text-align: center;
+}
+
+button .btn, .jobs {
+    text-decoration: none;
+    background-color: #FFCB00;
+    text-align: center;
+}
+
+
