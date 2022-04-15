@@ -1,12 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
-{% endblock %}
+<!--Start Header-->
+<header id="header" class="d-flex align-items-center">
+    <div
+     class="container d-flex
+      justify-content-between align-items-center">
+      <div class="logo">
+        <a href="/">
+          <img
+           src="{% static "images/Careerpioneername.png" %}" alt="Logo"
+           class="img-fluid style">
+        </a>
+      </div>
+      <!-- Start NavBar -->
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a  href="/">Home</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="/about">About</a></li>
+        </ul> 
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+  
+    </div>
+  </header>
+  <!-- End Header -->
+  
+  <!--Main Stylesheet-->
+  <link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet">
+{% endblock %} 
 
 {% block content %}
 
-<section class="container d-flex flex-column justify-content-center">
+<section class="container d-flex flex-column justify-content-center m-auto">
 <div class="page-header">
   <h1>Sign Up</h1>
 </div>
@@ -18,8 +47,9 @@
   <table>
     {{ form.as_table }}
   </table>
-  <button type="submit" class="btn submit">Submit!</button>
+  <button type="submit" class="btn submit mx-4">Submit!</button>
 </form>
 <a href="/">Back to Home</a>
+<a href="/accounts/login">Login</a>
 </section>
 {% endblock %}

@@ -1,29 +1,44 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
-<header id="header" class="fixed-top d-flex align-items-center ">
-    <div class="container d-flex justify-content-between align-items-center">
-  
+<!--Start Header-->
+<header id="header" class="d-flex align-items-center">
+    <div
+     class="container d-flex
+      justify-content-between align-items-center">
       <div class="logo">
-        <a href="/"><img src="{% static "images/Careerpioneername.png" %}" alt="Logo" class="img-fluid"></a>
+        <a href="/">
+          <img
+           src="{% static "images/Careerpioneername.png" %}" alt="Logo"
+           class="img-fluid style">
+        </a>
       </div>
+      <!-- Start NavBar -->
       <nav id="navbar" class="navbar">
         <ul>
-            <li><a class="active" href="{% url 'login' %}">Login</a></li>
+            <li><a  href="/">Home</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="/about">About</a></li>
         </ul> 
-        <i class="bi bi-list mobile-nav-toggle fa-solid fa-bars"></i>
+        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
   
     </div>
   </header>
   <!-- End Header -->
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+=======
+  
+  <!--Main Stylesheet-->
+  <link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet">
+>>>>>>> develop
 {% endblock %} 
-{% block content %}
 
+
+{% block content %}
 <br></br>
 <section class="container d-flex justify-content-center">
     <div>
@@ -34,6 +49,7 @@
     <input type="hidden" name="next" value="{{ next }}">
     <button type="submit" class="btn submit">Login</button>
     </form>
+    <a href="/accounts/signup">SignUp</a>
 </div>
 </section>
 {% endblock %}
