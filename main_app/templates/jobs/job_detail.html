@@ -74,10 +74,10 @@
         </ul>
         <div class="job-buttons">
           <div class="edit-delete">
+            <a class="jobs"href="{% url 'jobs' %}">Back to Jobs</a>
             <a class="job-options"href="{% url 'update-job' job.id %}">Edit</a>
             <a class="job-options"href="{% url 'delete-job' job.id %}">Delete</a>
           </div>
-          <a class="job-options details"href="{% url 'jobs' %}">Back to Jobs</a>
         </div>
       </div>
     </div>
