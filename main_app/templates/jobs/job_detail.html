@@ -42,7 +42,7 @@
 <section class="breadcrumbs">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <h2>{{job.title}}</h2>
+        <h2>{{job.title}} @ {{job.company}}</h2>
         <ol>
           <li><a href="/">Home</a></li>
           <li><a href="{% url 'jobs' %}">Jobs</a></li>
@@ -54,8 +54,6 @@
 
 <section class="w-100 h-100">
   <div class="container d-flex flex-column align-items-center">
-
-    <h2 class="mb-4">{{job.title}} @ {{job.company}}</h2>
     <div class="card shadow w-75 detail-card" style="max-width: 45rem">
       <div class="card-body">
         <ul class="list-group">
