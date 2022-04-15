@@ -35,21 +35,25 @@
 
 {% block content %}
 
-<section class="container d-flex flex-column justify-content-center m-auto">
-<div class="page-header">
-  <h1>Sign Up</h1>
-</div>
-{% if error_message %}
-  <p>{{ error_message }}</p>
-{% endif %}
-<form action="" method="post" class="form-container" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit mx-4">Submit!</button>
-</form>
-<a href="/" class="jobs">Back to Home</a>
-<a href="/accounts/login" class="jobs">Login</a>
+  <section class="container d-flex flex-column justify-content-center m-auto">
+    <div class="card detail-card text-center py-4 px-5 shadow">
+  <div class="page-header">
+    <h1>Sign Up</h1>
+  </div>
+  {% if error_message %}
+    <p>{{ error_message }}</p>
+  {% endif %}
+  <form action="" method="post" class="form-container" autocomplete="off">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <div class="mt-4">
+  <input type="submit" class="jobs"/>
+  </form>
+  <a href="/" class="jobs">Back to Home</a>
+  <a href="/accounts/login" class="jobs">Login</a>
+  </div>
+  </div>
 </section>
 {% endblock %}
