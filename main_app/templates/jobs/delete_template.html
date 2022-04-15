@@ -46,7 +46,7 @@
         {% csrf_token %}
         <div class="card-body">
         <p class="mb-4">Are you sure you want to delete "{{ object }}"</p>
-        < class="d-flex justify-content-around align-items-center">
+        <div class="d-flex justify-content-around align-items-center">
           {%  if object.company %}
             <a class="back" href="{% url 'job-details' object.id %}">Go Back</a>
           {% elif object.website %}
@@ -56,9 +56,7 @@
           {% else %}
             <a class="back" href="{% url 'status'%}">Go Back</a>
           {% endif %}
-          
           <input class="jobs delete-btn" value="Delete" type"submit"/>
-          
         </div>
       </form>
     </div>
