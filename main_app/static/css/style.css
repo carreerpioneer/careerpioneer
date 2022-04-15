@@ -668,14 +668,12 @@ section {
 
 a.jobs,
 .all-section>a,
-input.jobs,
 .form-section button {
   background: #1e4356;
   display: inline-block;
   padding: 6px 30px;
   border-radius: 20px;
   color: #fff;
-  transition: none;
   font-size: 14px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
@@ -688,19 +686,47 @@ input.jobs,
   align-items: center;
 }
 
-.edit-delete>a.job-options {
+.delete-btn {
+  text-align: center;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background: #1e4356;
+  display: inline-block;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s;
+  width: 100px;
+  height: 40px;
+}
+
+
+
+.edit-delete>a.job-options,
+a.back {
   background: #fceef3;
   display: inline-block;
   padding: 6px 15px;
   border-radius: 20px;
   color: #ff689b;
-  transition: none;
   font-size: 14px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
   transition: 0.3s;
   margin: 10px 7px;
 }
+
+form a.back {
+  padding-top: 10px;
+  width: 100px;
+  height: 40px;
+}
+
+
 
 .job-options.details {
   background: #1e4356;
