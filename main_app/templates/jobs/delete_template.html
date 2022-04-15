@@ -9,11 +9,7 @@
     justify-content-between align-items-center">
 
     <div class="logo">
-      <a href="/">
-        <img
-         src="{% static "images/Careerpioneername.png" %}" alt="Logo"
-         class="img-fluid">
-      </a>
+      <a href="/" class="header-logo-text">CAREER PIONEER</a>
     </div>
     <!-- Start NavBar -->
     <nav id="navbar" class="navbar">
@@ -56,7 +52,7 @@
           {% else %}
             <a class="back" href="{% url 'status'%}">Go Back</a>
           {% endif %}
-          <input class="jobs delete-btn" value="Delete" type"submit"/>
+          <button class="jobs delete-btn" type"submit"/>Delete</button>
         </div>
       </form>
     </div>
