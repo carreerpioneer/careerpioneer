@@ -18,15 +18,15 @@
       <!-- Start NavBar -->
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li><a  href="/">Home</a></li>
           <li><a href="{% url 'jobs' %}">Jobs</a></li>
           <li><a href="{% url 'status' %}">Status</a></li>
           <li><a href="{% url 'create-platform' %}">Platform</a></li>
-          <li><a href="/details">Details</a></li>
+          <li><a class="active" href="/details">Details</a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
-          <li><a class="active" href="/about">About</a></li>
+          <li><a href="/about">About</a></li>
         </ul> 
-        <i class="bi bi-list mobile-nav-toggle fa-solid fa-bars"></i>
+        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
   
@@ -50,88 +50,6 @@
       </div>
     </div>
   </section>
-
-  <section class="team" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <div class="member-img">
-              <img src="{% static "images/Zena.jpg"%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-github"></i></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Zena Endrias</h4>
-              <span>Scrum Master</span>
-              <p>Animi est delectus alias quam repellendus nihil nobis dolor. Est sapiente occaecati et dolore. Omnis aut ut nesciunt explicabo qui. Eius nam deleniti ut omnis repudiandae perferendis qui. Neque non quidem sit sed pariatur quia modi ea occaecati. Incidunt ea non est corporis in.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <div class="member-img">
-              <img src="{% static "images/Cody.jpg"%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-github"></i></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Cody Gravley</h4>
-              <span>Documenter</span>
-              <p>Aspernatur iste esse aliquam enim et corporis. Molestiae voluptatem aut eligendi quis aut. Libero vel amet voluptatem eos rerum non doloremque. Dolores eum non.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <div class="member-img">
-              <img src="{% static "images/Teal.jpg"%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-github"></i></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Teal Ewer</h4>
-              <span>Git Master</span>
-              <p>Ut enim possimus nihil cupiditate beatae. Veniam facere quae non qui necessitatibus rerum eos vero. Maxime sit sunt quo dolor autem est qui quaerat aliquid. Tenetur possimus qui enim.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <div class="member-img">
-              <img src="{% static "images/christine.jpg"%}" class="img-fluid" alt="">
-              <div class="social">
-                <a href="https://www.linkedin.com/in/zena-endrias/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-github"></i></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Christine Davis</h4>
-              <span>Database Manager</span>
-              <p>Sint qui cupiditate. Asperiores fugit impedit aspernatur et mollitia. Molestiae qui placeat labore assumenda id qui nesciunt quo reprehenderit. Rem dolores similique quis soluta culpa enim quia ratione ea.</p>
-            </div>
-          </div>
-        </div>
-
 <section class='container d-flex flex-column align-items-center'>
     <div class="m-auto text-center">
     <h1 class="mb-4">About Career Pioneer</h1>
@@ -144,5 +62,33 @@
         will be applied to each job you track so you never have to question where 
         you are in the job application process.
     </p>
+    <h3>About the Team:</h3>
+    <ul class="list-unstyled d-flex justify-content-center">
+        <li>
+          <div class="d-flex flex-column p-2">
+            <img src="{% static "images/cody.jpeg"%}" style="width: 120px; height: auto;"></img>
+            <a href="https://www.linkedin.com/in/codygravley/" target="_blank">Cody Gravley</a>
+          </div>
+        </li>
+        <li>
+          <div class="d-flex flex-column p-2">
+            <img src="{% static "images/teal.jpeg"%}" style="width: 120px; height: auto;"></img>
+            <a href="https://www.linkedin.com/in/teal-ewer/" target="_blank">Teal Ewer</a>
+          </div>
+        </li>
+        <li>
+          <div class="d-flex flex-column p-2">
+            <img src="{% static "images/zena.jpeg"%}" style="width: 120px; height: auto;"></img>
+            <a href="https://www.linkedin.com/in/zena-endrias/" target="_blank">Zena Endrias</a>
+          </div>
+          </li>
+        <li>
+          <div class="d-flex flex-column p-2">
+          <img src="{% static "images/christine.jpg"%}" style="width: 120px; height: auto;"></img>
+          <a href="https://www.linkedin.com/in/christine-davis-808/" target="_blank">Christine Davis</a>
+        </li>
+      </div>
+    </ul>
+</div>
 </section>
 {% endblock %}

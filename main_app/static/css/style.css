@@ -50,6 +50,9 @@ h6,
   padding: 3px;
 }
 
+.active {
+  font-size: 25px;
+}
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -166,7 +169,7 @@ h6,
 
 .navbar a i,
 .navbar a:focus i {
-  font-size: 12px;
+  font-size: 20px;
   line-height: 0;
   margin-left: 5px;
 }
@@ -199,7 +202,7 @@ h6,
 
 .navbar .dropdown ul a {
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 20px;
   text-transform: none;
   color: #1c3745;
 }
@@ -364,7 +367,7 @@ h6,
   top: 0;
   width: 130%;
   height: 95%;
-  background: linear-gradient(to right, rgba(30, 67, 86, 0.8), rgba(30, 67, 86, 0.6)), url("../img/hero-bg.jpg") center top no-repeat;
+  background: linear-gradient(to right, rgba(30, 67, 86, 0.8), rgba(30, 67, 86, 0.6)), url("../images/hero-bg.jpg") center top no-repeat;
   z-index: 0;
   border-radius: 0 0 50% 50%;
   transform: translateX(-50%) rotate(0deg);
@@ -665,6 +668,7 @@ section {
 
 a.jobs,
 .all-section>a,
+input.jobs,
 .form-section button {
   background: #1e4356;
   display: inline-block;
@@ -717,6 +721,7 @@ a.job-options:hover {
 }
 
 a.jobs:hover,
+input.jobs:hover,
 .job-options.details:hover,
 .all-section>a:hover,
 .form-section button:hover {
