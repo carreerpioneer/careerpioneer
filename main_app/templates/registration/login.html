@@ -43,9 +43,9 @@
     {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="btn submit">Login</button>
+    <button type="submit" class="jobs">Login</button>
     </form>
-    <a href="/accounts/signup">SignUp</a>
+    <a href="/accounts/signup" class="jobs">Sign Up</a>
 </div>
 </section>
 {% endblock %}
