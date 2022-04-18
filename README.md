@@ -34,6 +34,7 @@ Job details page:
 * Users will be able to upload their resume for peer review.
 
 ###  The Team:
+-----------
 * [Zena Endrias](https://www.linkedin.com/in/zena-endrias/) - Scrum Manager and Developer
 * [Teal Ewer](https://www.linkedin.com/in/teal-ewer/) - Git Commander and Developer
 * [Christine Davis](https://www.linkedin.com/in/christine-davis-808/) - Designer and Developer
