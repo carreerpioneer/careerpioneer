@@ -7,7 +7,7 @@ Career Pioneer is a job tracking application for anyone wanting assistance with 
 ---------
 Link to [Trello Board](https://trello.com/b/ENxDm0m5/job-tracker)
 
-[Career Pioneer]()
+[Career Pioneer](https://careerpioneer.herokuapp.com/)
 
 ### Screenshots:
 ----------
@@ -29,6 +29,12 @@ Job details page:
 
 ### Next Steps:
 -----------
-* An advertisement section will be included for employers to show available jobs
+* A sort feature will be added to check your most recent created jobs vs your oldest created job.s
 * A calender to keep track of days that progess had been made.
 * Users will be able to upload their resume for peer review.
+
+###  The Team:
+* [Zena Endrias](https://www.linkedin.com/in/zena-endrias/) - Scrum Manager and Developer
+* [Teal Ewer](https://www.linkedin.com/in/teal-ewer/) - Git Commander and Developer
+* [Christine Davis](https://www.linkedin.com/in/christine-davis-808/) - Designer and Developer
+* [Cody Gravley](https://www.linkedin.com/in/codygravley/) - Documentor and Developer
