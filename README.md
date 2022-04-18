@@ -29,7 +29,7 @@ Job details page:
 
 ### Next Steps:
 -----------
-* A sort feature will be added to check your most recent created jobs vs your oldest created job.s
+* A sort feature will be added to check your most recent created jobs vs your oldest created jobs
 * A calender to keep track of days that progess had been made.
 * Users will be able to upload their resume for peer review.
 
